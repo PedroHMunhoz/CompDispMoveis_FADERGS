@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ddd"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/lblDigiteValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginBottom="25dp"
+        android:text="Digite um valor"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtValorInformado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_editor_absoluteX="100dp"
+        app:layout_editor_absoluteY="150dp" />
+
+    <EditText
+        android:id="@+id/txtValorInformado"
+        android:layout_width="318dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="22dp"
+        android:ems="10"
+        android:hint="Informe um valor aqui"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/btnMultiplicar"
+        app:layout_constraintEnd_toEndOf="@+id/lblDigiteValor"
+        app:layout_constraintStart_toEndOf="@+id/lblDigiteValor"
+        app:layout_constraintTop_toBottomOf="@+id/lblDigiteValor" />
+
+    <Button
+        android:id="@+id/btnMultiplicar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="519dp"
+        android:backgroundTint="#673AB7"
+        android:text="Multiplicar"
+        android:textColor="#FFFBFB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtValorInformado" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
