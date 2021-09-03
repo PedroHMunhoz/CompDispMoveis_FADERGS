@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">AppAgendaLayout</string>
+
+    <string-array name="estados">
+        <item>Select...</item>
+        <item>PR</item>
+        <item>RS</item>
+        <item>SC</item>
+    </string-array>
+
+    <string name="txtNome">Name:</string>
+    <string name="txtHintNome">Enter your name...</string>
+    <string name="txtFone">Phone:</string>
+    <string name="txtHintFone">Enter your phone...</string>
+    <string name="txtTurno">Shift:</string>
+    <string name="txtManha">Morning</string>
+    <string name="txtNoite">Night</string>
+    <string name="txtEstado">State:</string>
+    <string name="txtAceitaEmail">Accept to receive email</string>
+    <string name="btnSalvar">Save</string>
+    <string name="txtTitulo">Application</string>
+</resources>
