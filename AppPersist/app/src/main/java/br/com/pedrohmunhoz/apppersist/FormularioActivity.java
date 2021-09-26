@@ -14,6 +14,8 @@ public class FormularioActivity extends AppCompatActivity {
     private EditText txtNomeProduto;
     private Spinner cboCategorias;
     private Button btnSalvar;
+    private String acao;
+    private Produto produto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,14 @@ public class FormularioActivity extends AppCompatActivity {
         txtNomeProduto = findViewById(R.id.txtNomeProduto);
         cboCategorias = findViewById(R.id.cboCategorias);
         btnSalvar = findViewById(R.id.btnSalvar);
+
+        // Pegamos a ação selecionada dos "extras" da intent que está chamando a tela
+        acao = getIntent().getStringExtra("acao");
+
+        // Se a ação for de editar, vai carregar o formulário e o produto com o ID passado como parâmetro
+        if (acao.equals("editar")) {
+            carregarFormulario();
+        }
 
         // Criamos um clickListener para disparar quando o botão Salvar for clicado
         btnSalvar.setOnClickListener(new View.OnClickListener() {
@@ -46,8 +56,14 @@ public class FormularioActivity extends AppCompatActivity {
         if (nomeProduto.isEmpty() || cboCategorias.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Você deve preencher todos os campos", Toast.LENGTH_LONG).show();
         } else {
-            // Instanciamos um novo produto para popular as propriedades dele
-            Produto produto = new Produto();
+            /** Instanciamos um novo produto para popular as propriedades dele, se for ação de inserir.
+             * Se for editar, o método carregarFormulario já populou nosso objeto local "produto"
+             * com todos os dados, inclusive o ID que precisamos para o update, por isso não podemos
+             * instanciar um novo objeto.
+             * */
+            if (acao.equals("inserir")) {
+                produto = new Produto();
+            }
 
             // Seta o nome
             produto.setNome(nomeProduto);
@@ -55,16 +71,56 @@ public class FormularioActivity extends AppCompatActivity {
             // Seta a categoria, pegando o texto que está na opção selecionada do Spinner
             produto.setCategoria(cboCategorias.getSelectedItem().toString());
 
-            // Chama a classe de DAO passando o contexto e o produto a ser inserido no banco
-            ProdutoDAO.inserir(this, produto);
+            if (acao.equals("inserir")) {
+                // Chama a classe de DAO passando o contexto e o produto a ser inserido no banco
+                ProdutoDAO.inserir(this, produto);
 
-            // Limpa o campo do nome do produto, para digitar um novo
-            txtNomeProduto.setText("");
+                // Limpa o campo do nome do produto, para digitar um novo
+                txtNomeProduto.setText("");
 
-            // Seta o combo de Categorias para a primeira opção, com animação habilitada
-            cboCategorias.setSelection(0, true);
+                // Seta o combo de Categorias para a primeira opção, com animação habilitada
+                cboCategorias.setSelection(0, true);
 
-            Toast.makeText(this, "Produto cadastro com sucesso!", Toast.LENGTH_LONG).show();
+                // Mostra mensagem de sucesso
+                Toast.makeText(this, "Produto cadastro com sucesso!", Toast.LENGTH_LONG).show();
+            } else {
+                // Chama a classe de DAO passando o contexto e o produto a ser editado no banco
+                ProdutoDAO.editar(this, produto);
+
+                // Mostra mensagem de sucesso
+                Toast.makeText(this, "Produto atualizado com sucesso!", Toast.LENGTH_LONG).show();
+
+                // Fecha a activity atual e volta para a anteriro
+                finish();
+            }
+        }
+    }
+
+    private void carregarFormulario() {
+        // Pegamos dos extras da Intent o idProduto que foi passado
+        int id = getIntent().getIntExtra("idProduto", 0);
+
+        // Buscamos no banco de dados o produto, pelo ID passado
+        produto = ProdutoDAO.getProdutoByID(this, id);
+
+        // Seta no textbox o nome do produto que veio do banco
+        txtNomeProduto.setText(produto.getNome());
+
+        // Buscamos o array de categorias definido no arquivo de strings
+        String[] categorias = getResources().getStringArray(R.array.categorias);
+
+        // Fazemos um loop no array, para procurar a categoria que está vinculada ao nosso produto
+        // Iniciamos do indice 1 pois o 0 é apenas um placeholder, não pode ser salvo no banco
+        for (int i = 1; i < categorias.length; i++) {
+            // Se o nome da categoria for encontrado no array, setamos aquela posição como
+            // selecionada no spinner
+            if (produto.getCategoria().equals(categorias[i])) {
+                // Seta o índice selecionado no Spinner
+                cboCategorias.setSelection(i);
+
+                // Sai da execução do laço pra evitar processamento desnecessário
+                break;
+            }
         }
     }
 }
