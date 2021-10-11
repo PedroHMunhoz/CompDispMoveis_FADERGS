@@ -13,4 +13,9 @@
     <string name="console_created_toast_message">Console cadastrado com sucesso!</string>
     <string name="console_updated_toast_message">Console atualizado com sucesso!</string>
     <string name="empty_list_placeholder">Lista vazia...</string>
+    <string name="empty_game_name_warning">Nome do jogo não pode estar vazio!</string>
+    <string name="game_created_toast_message">Jogo cadastro com sucesso!</string>
+    <string name="game_updated_toast_message">Jogo atualizado com sucesso!</string>
+    <string name="invalid_console_selected">O console selecionado não é válido! Verifique sua seleção.</string>
+    <string name="invalid_game_year">Ano do jogo inválido!</string>
 </resources>

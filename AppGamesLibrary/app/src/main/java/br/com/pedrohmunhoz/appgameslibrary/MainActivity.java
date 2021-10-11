@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 closeFabs();
-                Intent intent = new Intent(MainActivity.this, FormularioActivity.class);
-                intent.putExtra("acao", "inserir");
+                Intent intent = new Intent(MainActivity.this, GamesListActivity.class);
+                intent.putExtra("game_id", 0);
                 startActivity(intent);
             }
         });

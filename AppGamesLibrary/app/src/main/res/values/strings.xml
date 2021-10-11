@@ -13,4 +13,9 @@
     <string name="console_created_toast_message">Console created with success!</string>
     <string name="console_updated_toast_message">Console updated with success!</string>
     <string name="empty_list_placeholder">Empty list...</string>
+    <string name="empty_game_name_warning">Game name can\'t be empty!</string>
+    <string name="game_created_toast_message">Game created with success!</string>
+    <string name="game_updated_toast_message">Game updated with success!</string>
+    <string name="invalid_console_selected">The selected console is not valid! Check your selection.</string>
+    <string name="invalid_game_year">Invalid game year!</string>
 </resources>

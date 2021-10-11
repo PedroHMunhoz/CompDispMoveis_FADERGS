@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".FormularioActivity">
+    tools:context=".GamesActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,8 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:inputType="textCapCharacters"
-                android:text="@string/txtGameNameHint"
+                android:inputType="textCapWords"
+                android:hint="@string/txtGameNameHint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lblGameName" />
@@ -71,7 +71,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cboConsoles" />
 
             <EditText
-                android:id="@+id/txtYear"
+                android:id="@+id/txtGameYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="1992"
@@ -88,10 +88,10 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtYear" />
+                app:layout_constraintTop_toBottomOf="@+id/txtGameYear" />
 
             <Button
-                android:id="@+id/btnSave"
+                android:id="@+id/btnSaveGame"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

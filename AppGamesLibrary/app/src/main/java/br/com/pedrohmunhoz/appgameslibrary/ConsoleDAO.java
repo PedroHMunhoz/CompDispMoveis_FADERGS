@@ -21,11 +21,19 @@ public class ConsoleDAO {
         db.insert("consoles", null, values);
     }
 
+    public static void Update(Context context, Console console) {
+        ContentValues values = new ContentValues();
+        values.put("name", console.getName());
+        Conexao conn = new Conexao(context);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        db.update("consoles", values, "id = " + console.getId(), null);
+    }
+
     public static List<Console> getConsoles(Context context) {
         List<Console> listConsoles = new ArrayList<>();
         Conexao conn = new Conexao(context);
         SQLiteDatabase db = conn.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM consoles ORDER BY name", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM consoles ORDER BY id", null);
 
         if (cursor.getCount() > 0) {
 
@@ -42,14 +50,6 @@ public class ConsoleDAO {
         }
 
         return listConsoles;
-    }
-
-    public static void Update(Context context, Console console) {
-        ContentValues values = new ContentValues();
-        values.put("name", console.getName());
-        Conexao conn = new Conexao(context);
-        SQLiteDatabase db = conn.getWritableDatabase();
-        db.update("consoles", values, "id = " + console.getId(), null);
     }
 
     public static Console getConsoleByID(Context context, int idConsole) {

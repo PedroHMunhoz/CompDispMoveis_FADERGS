@@ -24,6 +24,8 @@ public class Conexao extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE IF NOT EXISTS games (" +
                 "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                 "name TEXT NOT NULL," +
+                "gameYear INT NOT NULL," +
+                "gameFinished INT NOT NULL," +
                 "console_id INT NOT NULL," +
                 "FOREIGN KEY(console_id) REFERENCES consoles(id))");
     }
