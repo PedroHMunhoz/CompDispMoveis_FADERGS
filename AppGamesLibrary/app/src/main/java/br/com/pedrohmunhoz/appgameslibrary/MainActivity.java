@@ -36,12 +36,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Set the reference to elements of the activity
         fabParent = findViewById(R.id.fabParent);
         fabConsoles = findViewById(R.id.fabConsoles);
         fabGames = findViewById(R.id.fabGames);
         lvwConsoles = findViewById(R.id.lvwConsoles);
         lvwGames = findViewById(R.id.lvwGames);
 
+        // Set the click listener to the parent FAB
         fabParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set the click listener to the Games list FAB
         fabGames.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set the click listener to the Consoles list FAB
         fabConsoles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,9 +77,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Load all the consoles from database
         LoadConsoles();
+
+        // Load all the games from database
         LoadGames();
 
+        // Set the click listener of the Consoles listview, to open the activity in Edit mode
         lvwConsoles.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -86,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set the click listener of the Games listview, to open the activity in Edit mode
         lvwGames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -97,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Open all the children FABs when clicking in the parent FAB, with animation
     private void openFabs() {
         fabConsoles.show();
         fabGames.show();
@@ -106,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         isFabsClosed = false;
     }
 
+    // Close all the children FABs when clicking in the parent FAB, with animation
     private void closeFabs() {
         fabConsoles.hide();
         fabGames.hide();
@@ -132,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Fetch all the consoles from database and populate the list of consoles
     private void LoadConsoles() {
         lstConsoles = ConsoleDAO.getConsoles(this);
 
@@ -148,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         lvwConsoles.setAdapter(adapter);
     }
 
+    // Fetch all the games from database and populate the list of consoles
     private void LoadGames() {
         lstGames = GameDAO.getGames(this);
 
@@ -164,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
         lvwGames.setAdapter(adapter);
     }
 
+    // This method will be called when returning to the activity, to reload the list if we add
+    // new items on database
     @Override
     protected void onRestart() {
         super.onRestart();

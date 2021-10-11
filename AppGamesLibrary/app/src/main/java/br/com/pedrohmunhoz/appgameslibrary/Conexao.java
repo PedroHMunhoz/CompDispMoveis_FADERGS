@@ -6,8 +6,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class Conexao extends SQLiteOpenHelper {
 
+    // Constant for database name
     private static final String NOME_BANCO = "DB_AppGamesLibrary";
 
+    // Constant for database version
     private static final int VERSAO = 1;
 
     public Conexao(Context context) {
@@ -15,6 +17,7 @@ public class Conexao extends SQLiteOpenHelper {
         super(context, NOME_BANCO, null, VERSAO);
     }
 
+    // This method will be executed on the first run, to create the database
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS consoles (" +
