@@ -46,8 +46,6 @@ public class GamesListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     private void LoadGames() {

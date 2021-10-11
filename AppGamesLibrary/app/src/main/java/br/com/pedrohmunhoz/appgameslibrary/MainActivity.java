@@ -11,10 +11,23 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabParent, fabConsoles, fabGames;
     boolean isFabsClosed = true;
+
+    private ListView lvwConsoles;
+    private ArrayAdapter adapter;
+    private List<Console> lstConsoles;
+
+    private ListView lvwGames;
+    private ArrayAdapter adapterGames;
+    private List<Game> lstGames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         fabParent = findViewById(R.id.fabParent);
         fabConsoles = findViewById(R.id.fabConsoles);
         fabGames = findViewById(R.id.fabGames);
+        lvwConsoles = findViewById(R.id.lvwConsoles);
+        lvwGames = findViewById(R.id.lvwGames);
 
         fabParent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +69,29 @@ public class MainActivity extends AppCompatActivity {
                 closeFabs();
                 Intent intent = new Intent(MainActivity.this, ConsolesListActivity.class);
                 intent.putExtra("console_id", 0);
+                startActivity(intent);
+            }
+        });
+
+        LoadConsoles();
+        LoadGames();
+
+        lvwConsoles.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int consoleID = lstConsoles.get(position).getId();
+                Intent intent = new Intent(MainActivity.this, ConsolesActivity.class);
+                intent.putExtra("console_id", consoleID);
+                startActivity(intent);
+            }
+        });
+
+        lvwGames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int gameID = lstGames.get(position).getId();
+                Intent intent = new Intent(MainActivity.this, GamesActivity.class);
+                intent.putExtra("game_id", gameID);
                 startActivity(intent);
             }
         });
@@ -92,5 +130,44 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void LoadConsoles() {
+        lstConsoles = ConsoleDAO.getConsoles(this);
+
+        if (lstConsoles.size() == 0) {
+            Console fake = new Console(getString(R.string.empty_list_placeholder));
+            lstConsoles.add(fake);
+            lvwConsoles.setEnabled(false);
+        } else {
+            lvwConsoles.setEnabled(true);
+        }
+
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lstConsoles);
+
+        lvwConsoles.setAdapter(adapter);
+    }
+
+    private void LoadGames() {
+        lstGames = GameDAO.getGames(this);
+
+        if (lstGames.size() == 0) {
+            Game fake = new Game(getString(R.string.empty_list_placeholder));
+            lstGames.add(fake);
+            lvwGames.setEnabled(false);
+        } else {
+            lvwGames.setEnabled(true);
+        }
+
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lstGames);
+
+        lvwGames.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        LoadConsoles();
+        LoadGames();
     }
 }

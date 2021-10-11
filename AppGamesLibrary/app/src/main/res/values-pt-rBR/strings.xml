@@ -18,4 +18,6 @@
     <string name="game_updated_toast_message">Jogo atualizado com sucesso!</string>
     <string name="invalid_console_selected">O console selecionado não é válido! Verifique sua seleção.</string>
     <string name="invalid_game_year">Ano do jogo inválido!</string>
+    <string name="recorded_consoles">Consoles Cadastrados</string>
+    <string name="recorded_games">Games Cadastrados</string>
 </resources>
