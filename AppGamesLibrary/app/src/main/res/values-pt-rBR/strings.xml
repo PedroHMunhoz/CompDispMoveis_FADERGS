@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Games Library</string>
+    <string name="lblGameName">Nome do Jogo:</string>
+    <string name="txtGameNameHint">Digite o nome do jogo</string>
+    <string name="lblConsole">Console:</string>
+    <string name="lblGameYear">Ano do Jogo:</string>
+    <string name="btnSaveGame">Salvar Jogo</string>
+    <string name="chkGameFinished">Jogo finalizado</string>
+    <string name="lblConsoleName">Nome do Console:</string>
+    <string name="txtConsoleNameHint">Digite o nome do console</string>
+    <string name="btnSaveConsole">Salvar Console</string>
+    <string name="emptyConsoleNameWarning">Nome do console não pode estar vazio!</string>
+    <string name="console_created_toast_message">Console cadastrado com sucesso!</string>
+    <string name="console_updated_toast_message">Console atualizado com sucesso!</string>
+    <string name="empty_list_placeholder">Lista vazia...</string>
+</resources>
