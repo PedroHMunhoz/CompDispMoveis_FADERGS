@@ -1,10 +1,12 @@
 package br.com.pedrohmunhoz.appgameslibrary;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -94,6 +96,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set the long click listener, used to delete consoles
+        lvwConsoles.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                DeleteConsole(position);
+                return true;
+            }
+        });
+
         // Set the click listener of the Games listview, to open the activity in Edit mode
         lvwGames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -102,6 +113,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, GamesActivity.class);
                 intent.putExtra("game_id", gameID);
                 startActivity(intent);
+            }
+        });
+
+        // Set the long click listener, used to delete games
+        lvwGames.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                DeleteGame(position);
+                return true;
             }
         });
     }
@@ -184,5 +204,89 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         LoadConsoles();
         LoadGames();
+    }
+
+    private void DeleteConsole(int position) {
+        // Get the console from the Consoles list based on the clicked item position
+        final Console console = lstConsoles.get(position);
+
+        // Build the Alert dialog object
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        // Set alert dialog title
+        alert.setTitle(R.string.delete_console_alert_title);
+
+        // Set alert dialog icon
+        alert.setIcon(android.R.drawable.ic_delete);
+
+        // Set alert dialog message
+        alert.setMessage(getString(R.string.console_delete_confirmation_message) + " " + console.getName() + "?");
+
+        // Set alert dialog neutral/cancel button
+        alert.setNeutralButton(R.string.delete_console_alert_cancel_button_text, null);
+
+        // Set alert dialog confirmation button message and action
+        alert.setPositiveButton(R.string.delete_console_alert_confirm_button_text, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // Check if console has any games linked, because if it has, we can't delete it
+                if (ConsoleDAO.ConsoleHasGames(MainActivity.this, console.getId())) {
+                    // Build and show to the user the warning message that the Console has games linked to it
+                    AlertDialog.Builder alertConsoleLink = new AlertDialog.Builder(MainActivity.this);
+                    alertConsoleLink.setTitle(R.string.console_has_links_alert_message_title);
+                    alertConsoleLink.setMessage(console.getName() + " " + getString(R.string.console_has_links_alert_message));
+                    alertConsoleLink.setIcon(android.R.drawable.ic_dialog_alert);
+                    alertConsoleLink.setNeutralButton("Ok", null);
+                    alertConsoleLink.show();
+                    return;
+                }
+
+                // If the console doesn't have any games linked, delete it
+                ConsoleDAO.Delete(MainActivity.this, console.getId());
+
+                // Reload the consoles listview to refresh it
+                LoadConsoles();
+            }
+        });
+
+        // Show the confirmation alert dialog to the user
+        alert.show();
+    }
+
+    private void DeleteGame(int position) {
+        // Get the Game from the Games list based on the clicked item position
+        final Game game = lstGames.get(position);
+
+        // Build the Alert dialog object
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        // Set alert dialog title
+        alert.setTitle(R.string.delete_game_alert_title);
+
+        // Set alert dialog icon
+        alert.setIcon(android.R.drawable.ic_delete);
+
+        // Set alert dialog message
+        alert.setMessage(getString(R.string.game_delete_confirmation_message) + " " + game.getName() + "?");
+
+        // Set alert dialog neutral/cancel button
+        alert.setNeutralButton(R.string.delete_game_alert_cancel_button_text, null);
+
+        // Set alert dialog confirmation button message and action
+        alert.setPositiveButton(R.string.delete_game_alert_confirm_button_text, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // Delete the game from database
+                GameDAO.Delete(MainActivity.this, game.getId());
+
+                // Reload the games listview to refresh it
+                LoadGames();
+            }
+        });
+
+        // Show the confirmation alert dialog to the user
+        alert.show();
     }
 }

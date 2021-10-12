@@ -123,4 +123,12 @@ public class GameDAO {
             return null;
         }
     }
+
+    public static void Delete(Context context, int game_id) {
+        Conexao conn = new Conexao(context);
+
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        db.delete("games", "id = " + game_id, null);
+    }
 }

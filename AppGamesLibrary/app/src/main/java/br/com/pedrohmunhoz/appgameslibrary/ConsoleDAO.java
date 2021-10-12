@@ -102,4 +102,26 @@ public class ConsoleDAO {
             return null;
         }
     }
+
+    public static boolean ConsoleHasGames(Context context, int console_id) {
+        boolean consoleHasGames = false;
+
+        Conexao conn = new Conexao(context);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM games WHERE console_id = " + console_id, null);
+
+        consoleHasGames = cursor.getCount() > 0;
+
+        return consoleHasGames;
+    }
+
+    public static void Delete(Context context, int console_id) {
+        Conexao conn = new Conexao(context);
+
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        db.delete("consoles", "id = " + console_id, null);
+    }
 }

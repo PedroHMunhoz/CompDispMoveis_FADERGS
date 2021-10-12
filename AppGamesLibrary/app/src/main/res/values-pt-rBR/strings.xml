@@ -20,4 +20,14 @@
     <string name="invalid_game_year">Ano do jogo inválido!</string>
     <string name="recorded_consoles">Consoles Cadastrados</string>
     <string name="recorded_games">Games Cadastrados</string>
+    <string name="console_delete_confirmation_message">Quer realmente deletar </string>
+    <string name="delete_console_alert_title">Deletar Console</string>
+    <string name="delete_console_alert_cancel_button_text">Cancelar</string>
+    <string name="delete_console_alert_confirm_button_text">Sim</string>
+    <string name="console_has_links_alert_message">está vinculado a jogos e não pode ser excluído!</string>
+    <string name="console_has_links_alert_message_title">Console com vínculos</string>
+    <string name="delete_game_alert_title">Deletar Jogo</string>
+    <string name="game_delete_confirmation_message">Quer realmente deletar</string>
+    <string name="delete_game_alert_cancel_button_text">Cancelar</string>
+    <string name="delete_game_alert_confirm_button_text">Sim</string>
 </resources>

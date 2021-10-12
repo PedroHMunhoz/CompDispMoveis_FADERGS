@@ -1,7 +1,9 @@
 package br.com.pedrohmunhoz.appgameslibrary;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +52,15 @@ public class GamesListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Set the long click listener, used to delete games
+        lvwGames.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                DeleteGame(position);
+                return true;
+            }
+        });
     }
 
     private void LoadGames() {
@@ -80,5 +91,41 @@ public class GamesListActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         LoadGames();
+    }
+
+    private void DeleteGame(int position) {
+        // Get the Game from the Games list based on the clicked item position
+        final Game game = lstGames.get(position);
+
+        // Build the Alert dialog object
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        // Set alert dialog title
+        alert.setTitle(R.string.delete_game_alert_title);
+
+        // Set alert dialog icon
+        alert.setIcon(android.R.drawable.ic_delete);
+
+        // Set alert dialog message
+        alert.setMessage(getString(R.string.game_delete_confirmation_message) + " " + game.getName() + "?");
+
+        // Set alert dialog neutral/cancel button
+        alert.setNeutralButton(R.string.delete_game_alert_cancel_button_text, null);
+
+        // Set alert dialog confirmation button message and action
+        alert.setPositiveButton(R.string.delete_game_alert_confirm_button_text, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // Delete the game from database
+                GameDAO.Delete(GamesListActivity.this, game.getId());
+
+                // Reload the games listview to refresh it
+                LoadGames();
+            }
+        });
+
+        // Show the confirmation alert dialog to the user
+        alert.show();
     }
 }
