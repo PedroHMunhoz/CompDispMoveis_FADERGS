@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "139236435486",
+    "firebase_url": "https://apppersistfirebasefadergs-default-rtdb.firebaseio.com",
+    "project_id": "apppersistfirebasefadergs",
+    "storage_bucket": "apppersistfirebasefadergs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139236435486:android:28bf0524980b342dc4b00f",
+        "android_client_info": {
+          "package_name": "br.com.pedrohmunhoz.apppersistfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139236435486-mbmprbghgjd9obov68v277ll9v2h8o62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9uWWWTl-pj1Km3qN5XQbabyrRykM4Mqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139236435486-mbmprbghgjd9obov68v277ll9v2h8o62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
