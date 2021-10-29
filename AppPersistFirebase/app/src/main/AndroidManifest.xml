@@ -9,16 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="br.com.pedrohmunhoz.apppersistfirebase.FormularioActivity"></activity>
-        <activity
-            android:name="br.com.pedrohmunhoz.apppersistfirebase.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".FormularioActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
         </activity>
     </application>
 

@@ -8,7 +8,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:139236435486:android:28bf0524980b342dc4b00f",
+        "mobilesdk_app_id": "1:139236435486:android:af4d0b61fb5a41f4c4b00f",
         "android_client_info": {
           "package_name": "br.com.pedrohmunhoz.apppersistfirebase"
         }

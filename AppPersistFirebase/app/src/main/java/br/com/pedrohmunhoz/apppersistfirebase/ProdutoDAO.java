@@ -99,7 +99,7 @@ public class ProdutoDAO {
                  * nos índices 0, 1 e 2 do Cursor, respectivamente. Por isso, ao setar as variáveis
                  * do objeto produtos, passamos o index correspondente para o método get do SQLite.
                  * */
-                produto.setId(cursor.getInt(0));
+                produto.setId(cursor.getString(0));
                 produto.setNome(cursor.getString(1));
                 produto.setCategoria(cursor.getString(2));
 
@@ -143,7 +143,7 @@ public class ProdutoDAO {
              * nos índices 0, 1 e 2 do Cursor, respectivamente. Por isso, ao setar as variáveis
              * do objeto produtos, passamos o index correspondente para o método get do SQLite.
              * */
-            produto.setId(cursor.getInt(0));
+            produto.setId(cursor.getString(0));
             produto.setNome(cursor.getString(1));
             produto.setCategoria(cursor.getString(2));
 

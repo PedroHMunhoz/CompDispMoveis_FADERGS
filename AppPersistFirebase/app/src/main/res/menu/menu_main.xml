@@ -2,9 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="br.com.pedrohmunhoz.apppersistfirebase.MainActivity">
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/mnuAdicionarProduto"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Adicionar Produto"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/mnuSair"
+        android:orderInCategory="100"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Sair"
         app:showAsAction="never" />
 </menu>

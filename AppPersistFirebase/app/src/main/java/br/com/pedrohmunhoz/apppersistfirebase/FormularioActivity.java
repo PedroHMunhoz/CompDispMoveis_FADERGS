@@ -1,14 +1,19 @@
 package br.com.pedrohmunhoz.apppersistfirebase;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,6 +26,9 @@ public class FormularioActivity extends AppCompatActivity {
     private Produto produto;
     private FirebaseDatabase database;
     private DatabaseReference reference;
+
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,26 @@ public class FormularioActivity extends AppCompatActivity {
         if (acao.equals("editar")) {
             carregarFormulario();
         }
+
+        // Pega a instância do Firebase Auth vinculada
+        auth = FirebaseAuth.getInstance();
+
+        // Adiciona um listener no estado do auth do Firebase
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                // Tenta pegar o usuário autenticado
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                // Se não tiver ninguém logado, fecha a activity
+                if (user == null) {
+                    finish();
+                }
+            }
+        };
+
+        // Adiciona o AuthStateListener no auth usado
+        auth.addAuthStateListener(authStateListener);
 
         // Criamos um clickListener para disparar quando o botão Salvar for clicado
         btnSalvar.setOnClickListener(new View.OnClickListener() {
@@ -133,5 +161,16 @@ public class FormularioActivity extends AppCompatActivity {
                 break;
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.mnuSair) {
+            auth.signOut();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

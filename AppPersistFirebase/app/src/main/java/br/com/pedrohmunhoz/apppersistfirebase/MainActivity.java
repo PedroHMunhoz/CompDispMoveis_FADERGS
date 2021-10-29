@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
@@ -25,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter adapter;
     private List<Produto> lstProdutos;
 
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener authStateListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +42,26 @@ public class MainActivity extends AppCompatActivity {
 
         // Chama o método para popular a lista e o adapter que será usado
         carregarProdutos();
+
+        // Pega a instância do Firebase Auth vinculada
+        auth = FirebaseAuth.getInstance();
+
+        // Adiciona um listener no estado do auth do Firebase
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                // Tenta pegar o usuário autenticado
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                // Se não tiver ninguém logado, fecha a activity
+                if (user == null) {
+                    finish();
+                }
+            }
+        };
+
+        // Adiciona o AuthStateListener no auth usado
+        auth.addAuthStateListener(authStateListener);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -175,8 +201,14 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.mnuAdicionarProduto) {
+            Intent intent = new Intent(MainActivity.this, FormularioActivity.class);
+            intent.putExtra("acao", "inserir");
+            startActivity(intent);
+        }
+
+        if (id == R.id.mnuSair) {
+            auth.signOut();
         }
 
         return super.onOptionsItemSelected(item);
