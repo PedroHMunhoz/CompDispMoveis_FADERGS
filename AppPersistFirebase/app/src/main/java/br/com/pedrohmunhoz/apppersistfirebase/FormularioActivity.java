@@ -139,8 +139,17 @@ public class FormularioActivity extends AppCompatActivity {
         // Pegamos dos extras da Intent o idProduto que foi passado
         String id = getIntent().getStringExtra("idProduto");
 
-        // Buscamos no banco de dados o produto, pelo ID passado
-        //produto = ProdutoDAO.getProdutoByID(this, id);
+        // Pegamos dos extras da Intent o nome que foi passado
+        String nome = getIntent().getStringExtra("nome");
+
+        // Pegamos dos extras da Intent a categoria que foi passado
+        String categoria = getIntent().getStringExtra("categoria");
+
+        // Instanciamos um novo objeto produto e pegamos as informações da intent
+        produto = new Produto();
+        produto.setId(id);
+        produto.setNome(nome);
+        produto.setCategoria(categoria);
 
         // Seta no textbox o nome do produto que veio do banco
         txtNomeProduto.setText(produto.getNome());
