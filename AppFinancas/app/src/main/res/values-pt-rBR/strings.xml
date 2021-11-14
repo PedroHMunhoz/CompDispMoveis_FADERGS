@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AppFinancas</string>
+    <string name="titulo_dashboard">Informativo dos últimos 7 dias</string>
+    <string name="titulo_receitas">Receitas</string>
+    <string name="titulo_despesas">Despesas</string>
+    <string name="titulo_total">Total</string>
+    <string name="texto_fab_adicionar_lancamento">Adicionar Lançamento</string>
+    <string name="texto_fab_relatorio">Relatório</string>
+</resources>

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AppFinancas</string>
+    <string name="titulo_dashboard">Report of the last 7 days</string>
+    <string name="titulo_receitas">Revenues</string>
+    <string name="titulo_despesas">Expenses</string>
+    <string name="titulo_total">Total</string>
+    <string name="texto_fab_adicionar_lancamento">Add Entry</string>
+    <string name="texto_fab_relatorio">Report</string>
 </resources>
