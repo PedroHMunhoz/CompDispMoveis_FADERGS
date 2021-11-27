@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "735132454294",
+    "project_id": "appfinancas-compdispmoveis",
+    "storage_bucket": "appfinancas-compdispmoveis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735132454294:android:9f64a1bacc2bdd72bea1b7",
+        "android_client_info": {
+          "package_name": "br.com.pedrohmunhoz.appfinancas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735132454294-i2m4v49gelbepnavbf5gumfj39voc1d0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3unLfW72-pigxZg3UnAww02qcwzNGqr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735132454294-i2m4v49gelbepnavbf5gumfj39voc1d0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
