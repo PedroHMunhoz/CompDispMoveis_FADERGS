@@ -6,4 +6,9 @@
     <string name="titulo_total">Total</string>
     <string name="texto_fab_adicionar_lancamento">Add Entry</string>
     <string name="texto_fab_relatorio">Report</string>
+    <string name="texto_email">Email</string>
+    <string name="texto_senha">Password</string>
+    <string name= "txtHintEmail">Type your e-mail</string>
+    <string name="txtHintSenha">Type your password</string>
+    <string name="texto_bt_entrar">To Enter</string>
 </resources>

@@ -1,9 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FCFDFD"
     tools:context=".TelaInicial">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="30dp">
+
+
+    <TextView
+        android:id="@+id/txtApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:textSize="30dp"
+        android:text="AppFinanças"
+        android:textColor="#3F51B5"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="85dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:textSize="25dp"
+            android:text="@string/texto_email"
+            android:textColor="#3F51B5"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#3F51B5"
+        android:textStyle="bold"
+        android:ems="10"
+        android:hint="@string/txtHintEmail"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="159dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:textSize="25dp"
+            android:text="@string/texto_senha"
+            android:textColor="#3F51B5"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <EditText
+        android:id="@+id/etSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#3F51B5"
+        android:textStyle="bold"
+        android:hint="@string/txtHintSenha"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <Button
+        android:id="@+id/btEntrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_bt_entrar"
+        android:backgroundTint="#3F51B5"
+        android:layout_gravity="center_horizontal"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="385dp" />
+
+    </LinearLayout>
+
+</ScrollView>

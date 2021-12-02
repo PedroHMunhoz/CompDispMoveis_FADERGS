@@ -29,6 +29,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="Actions"
         app:srcCompat="@drawable/ic_add_circle_black_24dp" />
 
@@ -39,7 +40,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="80dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="#3F51B5"
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/fabParent"
         app:layout_constraintEnd_toEndOf="@+id/fabParent"
@@ -64,7 +65,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="130dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="#3F51B5"
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/fabParent"
         app:layout_constraintEnd_toEndOf="@+id/fabParent"

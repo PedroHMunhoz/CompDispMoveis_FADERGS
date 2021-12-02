@@ -1,5 +1,7 @@
 package br.com.pedrohmunhoz.appfinancas;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -69,5 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Relatório", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }
