@@ -11,4 +11,11 @@
     <string name="txtHintEmail">Digite seu email</string>
     <string name="txtHintSenha">Digite sua senha</string>
     <string name="texto_bt_entrar">Entrar</string>
+    <string name="texto_bt_cadastrar">Cadastrar</string>
+    <string name="email_password_empty_warning">O e-mail e a senha devem ser preenchidos!</string>
+    <string name="password_min_length_warning">A senha deve ter no mínimo 6 caracteres!</string>
+    <string name="login_error_message">Erro ao fazer o login. Verifique o usuário e senha digitados.</string>
+    <string name="signup_error_message">Erro ao cadastrar. Verifique os dados digitados.</string>
+    <string name="texto_fab_perfil">Meu Perfil</string>
+    <string name="texto_fab_sair">Deslogar</string>
 </resources>

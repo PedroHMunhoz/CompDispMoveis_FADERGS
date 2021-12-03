@@ -83,6 +83,56 @@
         app:layout_constraintEnd_toStartOf="@+id/fabRelatorio"
         app:layout_constraintTop_toTopOf="@+id/fabRelatorio" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="180dp"
+        android:backgroundTint="#3F51B5"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/fabRelatorio"
+        app:layout_constraintEnd_toEndOf="@+id/fabRelatorio"
+        app:srcCompat="@drawable/ic_person_black_24dp" />
+
+    <TextView
+        android:id="@+id/lblPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="190dp"
+        android:text="@string/texto_fab_perfil"
+        app:layout_constraintBottom_toBottomOf="@+id/fabRelatorio"
+        app:layout_constraintEnd_toStartOf="@+id/fabRelatorio"
+        app:layout_constraintTop_toTopOf="@+id/fabRelatorio" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="230dp"
+        android:backgroundTint="#3F51B5"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/fabPerfil"
+        app:layout_constraintEnd_toEndOf="@+id/fabPerfil"
+        app:srcCompat="@drawable/ic_exit_to_app_black_24dp" />
+
+    <TextView
+        android:id="@+id/lblSair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="240dp"
+        android:text="@string/texto_fab_sair"
+        app:layout_constraintBottom_toBottomOf="@+id/fabRelatorio"
+        app:layout_constraintEnd_toStartOf="@+id/fabRelatorio"
+        app:layout_constraintTop_toTopOf="@+id/fabRelatorio" />
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -10,5 +10,12 @@
     <string name="texto_senha">Password</string>
     <string name= "txtHintEmail">Type your e-mail</string>
     <string name="txtHintSenha">Type your password</string>
-    <string name="texto_bt_entrar">To Enter</string>
+    <string name="texto_bt_entrar">Enter</string>
+    <string name="texto_bt_cadastrar">Sign in</string>
+    <string name="email_password_empty_warning">Email and password can\'t be empty!</string>
+    <string name="password_min_length_warning">Password must have at least 6 characters!</string>
+    <string name="login_error_message">Error on login. Check the user and password.</string>
+    <string name="signup_error_message">Error in signup. Check the informed data.</string>
+    <string name="texto_fab_perfil">My Profile</string>
+    <string name="texto_fab_sair">Logout</string>
 </resources>

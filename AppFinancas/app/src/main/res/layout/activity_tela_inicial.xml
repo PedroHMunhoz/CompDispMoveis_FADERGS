@@ -43,11 +43,11 @@
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginBottom="30dp"
         android:textColor="#3F51B5"
         android:textStyle="bold"
@@ -70,12 +70,12 @@
 
         <EditText
         android:id="@+id/etSenha"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginBottom="30dp"
         android:textColor="#3F51B5"
         android:textStyle="bold"
@@ -84,15 +84,26 @@
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="260dp" />
 
-    <Button
-        android:id="@+id/btEntrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/texto_bt_entrar"
-        android:backgroundTint="#3F51B5"
-        android:layout_gravity="center_horizontal"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="385dp" />
+        <Button
+            android:id="@+id/btEntrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#3F51B5"
+            android:text="@string/texto_bt_entrar"
+            tools:layout_editor_absoluteX="158dp"
+            tools:layout_editor_absoluteY="385dp" />
+
+        <Button
+            android:id="@+id/btCadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#3F51B5"
+            android:layout_marginTop="20dp"
+            android:text="@string/texto_bt_cadastrar"
+            tools:layout_editor_absoluteX="158dp"
+            tools:layout_editor_absoluteY="385dp" />
 
     </LinearLayout>
 
