@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCFDFD"
+    tools:context=".RelatorioActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/txtRelatorio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:text="@string/txtRelatorio"
+            android:textAlignment="center"
+            android:textColor="#3F51B5"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="85dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblTituloDataInicial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:width="120dp"
+                android:gravity="center_horizontal"
+                android:text="@string/titulo_datainicial_relatorio"
+                android:textColor="#3F51B5"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txtDataInicial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:width="120dp"
+                android:hint="01/10/2021"
+                android:inputType="date"
+                android:maxLength="10"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/lblTituloDataInicial"
+                app:layout_constraintStart_toStartOf="@+id/lblTituloDataInicial"
+                app:layout_constraintTop_toBottomOf="@+id/lblTituloDataInicial" />
+
+            <TextView
+                android:id="@+id/lblTituloDataFinal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:width="120dp"
+                android:gravity="center_horizontal"
+                android:text="@string/titulo_datafinal_relatorio"
+                android:textColor="#3F51B5"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txtDataFinal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:width="120dp"
+                android:hint="31/10/2021"
+                android:inputType="date"
+                android:maxLength="10"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/lblTituloDataFinal"
+                app:layout_constraintStart_toStartOf="@+id/lblTituloDataFinal"
+                app:layout_constraintTop_toBottomOf="@+id/lblTituloDataFinal" />
+
+            <Button
+                android:id="@+id/btnGerarRelatorio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/titulo_botao_relatorio"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="@+id/txtDataFinal"
+                app:layout_constraintStart_toStartOf="@+id/txtDataInicial"
+                app:layout_constraintTop_toBottomOf="@+id/txtDataFinal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+
+            <ListView
+                android:id="@+id/lvwLancamentos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </ScrollView>
+    </LinearLayout>
+</ScrollView>

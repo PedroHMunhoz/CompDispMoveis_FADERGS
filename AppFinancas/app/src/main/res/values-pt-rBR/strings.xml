@@ -27,4 +27,10 @@
     <string name="cadastro_incompleto_dialog_title">Cadastro Incompleto</string>
     <string name="cadastro_incompleto_dialog_message">Seu cadastro está incompleto, você precisa preencher o seu Nome antes de começar a utilizar o aplicativo. Ao clicar em OK,
         você será direcionado para a tela de Perfil para cadastrar um Nome válido.</string>
+    <string name="txtRelatorio">Relatório</string>
+    <string name="titulo_datainicial_relatorio">De</string>
+    <string name="titulo_datafinal_relatorio">Até</string>
+    <string name="titulo_botao_relatorio">Gerar Relatório</string>
+    <string name="datas_invalidas_relatorios">Data De ou Até inválidas! Verifique os dados digitados e tente novamente.</string>
+    <string name="datas_invalidas_titulo">Datas Inválidas</string>
 </resources>

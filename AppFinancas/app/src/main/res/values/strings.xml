@@ -27,4 +27,10 @@
     <string name="cadastro_incompleto_dialog_title">Incomplete Registration</string>
     <string name="cadastro_incompleto_dialog_message">Your registration is incomplete, you must fill in your Name before starting to use the app. When you click OK you will
         be redirected to the Profile screen to register a valid Name.</string>
+    <string name="txtRelatorio">Report</string>
+    <string name="titulo_datainicial_relatorio">From</string>
+    <string name="titulo_datafinal_relatorio">To</string>
+    <string name="titulo_botao_relatorio">Generate Report</string>
+    <string name="datas_invalidas_relatorios">From or To Date are invalid! Check the informed dates and try again.</string>
+    <string name="datas_invalidas_titulo">Invalid Dates</string>
 </resources>
