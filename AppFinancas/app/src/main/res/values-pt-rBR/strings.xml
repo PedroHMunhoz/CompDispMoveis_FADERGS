@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppFinancas</string>
+    <string name="app_name">Controle Financeiro</string>
     <string name="titulo_dashboard">Informativo dos últimos 7 dias</string>
     <string name="titulo_receitas">Receitas</string>
     <string name="titulo_despesas">Despesas</string>
@@ -24,4 +24,7 @@
     <string name="txtEmail">Email:</string>
     <string name="etEmail">Digite seu email aqui...</string>
     <string name="btnSalvar">Salvar</string>
+    <string name="cadastro_incompleto_dialog_title">Cadastro Incompleto</string>
+    <string name="cadastro_incompleto_dialog_message">Seu cadastro está incompleto, você precisa preencher o seu Nome antes de começar a utilizar o aplicativo. Ao clicar em OK,
+        você será direcionado para a tela de Perfil para cadastrar um Nome válido.</string>
 </resources>

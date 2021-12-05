@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppFinancas</string>
+    <string name="app_name">Financial Management</string>
     <string name="titulo_dashboard">Report of the last 7 days</string>
     <string name="titulo_receitas">Revenues</string>
     <string name="titulo_despesas">Expenses</string>
@@ -23,5 +23,8 @@
     <string name="etNome">Enter your name here...</string>
     <string name="txtEmail">Email:</string>
     <string name="etEmail">Enter your email here...</string>
-    <string name="btnSalvar">To Save</string>
+    <string name="btnSalvar">Save</string>
+    <string name="cadastro_incompleto_dialog_title">Incomplete Registration</string>
+    <string name="cadastro_incompleto_dialog_message">Your registration is incomplete, you must fill in your Name before starting to use the app. When you click OK you will
+        be redirected to the Profile screen to register a valid Name.</string>
 </resources>

@@ -10,8 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:padding="30dp">
 
         <TextView
@@ -20,10 +20,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:textSize="30dp"
             android:text="@string/txtCadastro"
-            android:textColor="#3F51B5"
             android:textAlignment="center"
+            android:textColor="#3F51B5"
+            android:textSize="30dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="162dp"
             tools:layout_editor_absoluteY="85dp" />
@@ -46,8 +46,8 @@
             android:layout_marginBottom="20dp"
             android:hint="@string/etNome"
             android:textAlignment="center"
-            android:textSize="20dp"
             android:textColor="#3F51B5"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
 
@@ -68,17 +68,17 @@
             android:layout_marginBottom="20dp"
             android:hint="@string/etEmail"
             android:textAlignment="center"
-            android:textSize="20dp"
             android:textColor="#3F51B5"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btnSalvar"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="#3F51B5"/>
+            android:backgroundTint="#3F51B5"
+            android:text="@string/btnSalvar" />
 
 
     </LinearLayout>

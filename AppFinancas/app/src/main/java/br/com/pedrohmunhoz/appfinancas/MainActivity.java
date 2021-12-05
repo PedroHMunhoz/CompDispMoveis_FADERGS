@@ -1,6 +1,8 @@
 package br.com.pedrohmunhoz.appfinancas;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -23,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
     private Boolean isAllFabsVisible;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        // Valida o usuário logado via FireBase e se o cadastro está completo
+        ValidarUsuario();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,18 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                // Tenta pegar o usuário autenticado
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-
-                // Se não tiver ninguém logado, fecha a activity
-                if (user == null) {
-                    finish();
-                }
-            }
-        };
+        // Valida o usuário logado via FireBase e se o cadastro está completo
+        ValidarUsuario();
 
         auth.addAuthStateListener(authStateListener);
 
@@ -122,10 +122,62 @@ public class MainActivity extends AppCompatActivity {
         fabPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, TelaCadastro.class);
-            startActivity(intent);
+                AbrirTelaPerfil();
             }
         });
+    }
 
+    private void AbrirTelaPerfil() {
+        Intent intent = new Intent(MainActivity.this, TelaCadastro.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void ValidarUsuario() {
+
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                // Tenta pegar o usuário autenticado
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                // Se não tiver ninguém logado, fecha a activity
+                if (user == null) {
+                    finish();
+                } else {
+                    // Busca o usuário logado no banco para verificar se ele já cadastrou o nome
+                    Usuario userDb = UsuarioDAO.getUsuarioByID(MainActivity.this, user.getUid());
+
+                    // Se não achar o usuário no SQLIte, fecha a activity
+                    if (userDb == null) {
+                        finish();
+                    } else {
+                        // Pega o valor da propriedade Nome do usuário cadastrado no SQLite
+                        String nomeUsuarioDb = userDb.getNome();
+
+                        // Se estiver NULL ou vazio, mostra mensagem de alerta e direciona pra activity de perfil
+                        if (nomeUsuarioDb == null || nomeUsuarioDb.isEmpty()) {
+                            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                            dialog.setTitle(R.string.cadastro_incompleto_dialog_title);
+                            dialog.setIcon(android.R.drawable.ic_dialog_alert);
+                            dialog.setMessage(getString(R.string.cadastro_incompleto_dialog_message));
+
+                            // Evita que o alerta possa ser cancelado ou fechado
+                            dialog.setCancelable(false);
+
+                            dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    AbrirTelaPerfil();
+
+                                }
+                            });
+
+                            dialog.show();
+                        }
+                    }
+                }
+            }
+        };
     }
 }

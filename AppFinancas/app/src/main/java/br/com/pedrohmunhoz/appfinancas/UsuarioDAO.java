@@ -33,14 +33,14 @@ public class UsuarioDAO {
         db.update("usuario", values, "id = " + usuario.getId(), null);
     }
 
-    public static Usuario getUsuarioByID(Context context, int idUsuario) {
+    public static Usuario getUsuarioByID(Context context, String idUsuario) {
         List<Usuario> listaUsuarios = new ArrayList<>();
 
         Conexao conn = new Conexao(context);
 
         SQLiteDatabase db = conn.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM usuario WHERE id = " + idUsuario, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM usuario WHERE id = '" + idUsuario + "'", null);
 
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();

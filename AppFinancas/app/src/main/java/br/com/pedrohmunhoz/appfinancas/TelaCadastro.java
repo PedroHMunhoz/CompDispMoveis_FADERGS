@@ -1,6 +1,8 @@
 package br.com.pedrohmunhoz.appfinancas;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +22,9 @@ public class TelaCadastro extends AppCompatActivity {
           @Override
           public void onClick(View view) {
              Toast.makeText(getBaseContext(),"Salvar", Toast.LENGTH_LONG).show();
-             finish();
+              Intent intent = new Intent(TelaCadastro.this, MainActivity.class);
+              startActivity(intent);
+              finish();
           }
       });
 
