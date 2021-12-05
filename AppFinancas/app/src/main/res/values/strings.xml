@@ -8,7 +8,7 @@
     <string name="texto_fab_relatorio">Report</string>
     <string name="texto_email">Email</string>
     <string name="texto_senha">Password</string>
-    <string name= "txtHintEmail">Type your e-mail</string>
+    <string name="txtHintEmail">Type your e-mail</string>
     <string name="txtHintSenha">Type your password</string>
     <string name="texto_bt_entrar">Enter</string>
     <string name="texto_bt_cadastrar">Sign in</string>
@@ -18,4 +18,10 @@
     <string name="signup_error_message">Error in signup. Check the informed data.</string>
     <string name="texto_fab_perfil">My Profile</string>
     <string name="texto_fab_sair">Logout</string>
+    <string name="txtCadastro">Customer Registration</string>
+    <string name="txtNome">Name:</string>
+    <string name="etNome">Enter your name here...</string>
+    <string name="txtEmail">Email:</string>
+    <string name="etEmail">Enter your email here...</string>
+    <string name="btnSalvar">To Save</string>
 </resources>

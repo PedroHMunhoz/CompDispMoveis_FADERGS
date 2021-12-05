@@ -118,5 +118,14 @@ public class MainActivity extends AppCompatActivity {
                 auth.signOut();
             }
         });
+
+        fabPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Intent intent = new Intent(MainActivity.this, TelaCadastro.class);
+            startActivity(intent);
+            }
+        });
+
     }
 }

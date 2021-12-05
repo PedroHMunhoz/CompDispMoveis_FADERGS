@@ -18,4 +18,10 @@
     <string name="signup_error_message">Erro ao cadastrar. Verifique os dados digitados.</string>
     <string name="texto_fab_perfil">Meu Perfil</string>
     <string name="texto_fab_sair">Deslogar</string>
+    <string name="txtCadastro">Cadastro Cliente</string>
+    <string name="txtNome">Nome:</string>
+    <string name="etNome">Digite seu nome aqui...</string>
+    <string name="txtEmail">Email:</string>
+    <string name="etEmail">Digite seu email aqui...</string>
+    <string name="btnSalvar">Salvar</string>
 </resources>
