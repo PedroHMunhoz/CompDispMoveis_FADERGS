@@ -37,4 +37,11 @@
     <string name="btn_lancar">Register</string>
     <string name="tipo_lancamento">Type</string>
     <string name="descricao_lancamento_hint">Description</string>
+    <string name="erro_descricao_lancamento">Description not informed or invalid!</string>
+    <string name="erro_tipo_lancamento">Type not informed or invalid!</string>
+    <string name="erro_valor_lancamento_vazio">Value not informed or invalid!</string>
+    <string name="erro_valor_negativo_ou_zero">Value cannot be zero or negative!</string>
+    <string name="erro_data_invalida_lancamento">Date not informed or invalid!</string>
+    <string name="lancamento_efetuado_sucesso">Registered with success!</string>
+    <string name="lancamento_erro">Error:</string>
 </resources>

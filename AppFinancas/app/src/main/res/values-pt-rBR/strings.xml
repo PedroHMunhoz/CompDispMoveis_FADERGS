@@ -37,4 +37,11 @@
     <string name="btn_lancar">Lançar</string>
     <string name="tipo_lancamento">Tipo</string>
     <string name="descricao_lancamento_hint">Descrição</string>
+    <string name="erro_descricao_lancamento">Descrição não informada ou inválida!</string>
+    <string name="erro_tipo_lancamento">Tipo não informado ou inválido!</string>
+    <string name="erro_valor_lancamento_vazio">Valor não informado ou inválido!</string>
+    <string name="erro_valor_negativo_ou_zero">O valor não pode ser zero nem negativo!</string>
+    <string name="erro_data_invalida_lancamento">Data inválida ou não informada!</string>
+    <string name="lancamento_efetuado_sucesso">Lançamento efetuado com sucesso!</string>
+    <string name="lancamento_erro">Erro no lançamento:</string>
 </resources>

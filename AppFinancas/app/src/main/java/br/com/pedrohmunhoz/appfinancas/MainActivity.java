@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(MainActivity.this, LancamentoActivity.class);
                         startActivity(intent);
-                        finish();
                     }
                 });
 
@@ -170,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     AbrirTelaPerfil();
-
                                 }
                             });
 
