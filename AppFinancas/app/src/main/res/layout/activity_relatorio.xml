@@ -103,15 +103,14 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ScrollView
+        <ListView
+            android:id="@+id/lvwLancamentos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp">
-
-            <ListView
-                android:id="@+id/lvwLancamentos"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </ScrollView>
+            android:layout_height="500dp"
+            android:layout_marginTop="30dp"/>
     </LinearLayout>
+
+
+
 </ScrollView>
+

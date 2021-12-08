@@ -44,4 +44,6 @@
     <string name="erro_data_invalida_lancamento">Date not informed or invalid!</string>
     <string name="lancamento_efetuado_sucesso">Registered with success!</string>
     <string name="lancamento_erro">Error:</string>
+    <string name="relatorio_date_title">Date:</string>
+    <string name="relatorio_desc_title">Desc:</string>
 </resources>

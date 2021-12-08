@@ -1,5 +1,7 @@
 package br.com.pedrohmunhoz.appfinancas;
 
+import android.content.Context;
+
 import java.time.LocalDate;
 
 public class Lancamento {
@@ -9,6 +11,17 @@ public class Lancamento {
     public int tipoLancamento;
     public double valor;
     public LocalDate data;
+    public Context context;
+    public String dataFormatada;
+
+    public Lancamento(Context context) {
+        this.context = context;
+    }
+
+    public Lancamento(String descricao, Context context) {
+        this.descricao = descricao;
+        this.context = context;
+    }
 
     public int getId() {
         return id;
@@ -56,5 +69,29 @@ public class Lancamento {
 
     public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public String getTipoLancamentoDsc() {
+        return (tipoLancamento == 1 ? this.context.getString(R.string.titulo_receitas) : this.context.getString(R.string.titulo_despesas));
+    }
+
+    public String getDataFormatada() {
+        return dataFormatada;
+    }
+
+    public void setDataFormatada(LocalDate dataOriginal) {
+        String data = "";
+        String ajustaDia = dataOriginal.getDayOfMonth() < 10 ? "0" + dataOriginal.getDayOfMonth() : String.valueOf(dataOriginal.getDayOfMonth());
+        data = ajustaDia + "/" + dataOriginal.getMonthValue() + "/" + dataOriginal.getYear();
+        dataFormatada = data;
+    }
+
+    @Override
+    public String toString() {
+        if (tipoLancamento == 0) {
+            return descricao;
+        } else {
+            return descricao + "   |   " + getTipoLancamentoDsc() + "   |   " + getDataFormatada();
+        }
     }
 }

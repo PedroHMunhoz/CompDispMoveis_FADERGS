@@ -107,7 +107,7 @@ public class LancamentoActivity extends AppCompatActivity {
 
             LocalDate date = LocalDate.parse(dataDigitada, dateTimeFormatter);
 
-            Lancamento lanc = new Lancamento();
+            Lancamento lanc = new Lancamento(this);
             lanc.setUsuario_id(userIdFirebase);
             lanc.setDescricao(descricao);
             lanc.setTipoLancamento(tipoLancamento);

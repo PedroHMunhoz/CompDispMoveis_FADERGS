@@ -15,7 +15,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,26 +71,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if (!isAllFabsVisible) {
-
-                            fabAddLancamento.show();
-                            lblAddLancamento.setVisibility(View.VISIBLE);
-                            fabRelatorio.show();
-                            lblRelatorio.setVisibility(View.VISIBLE);
-                            fabPerfil.show();
-                            lblPerfil.setVisibility(View.VISIBLE);
-                            fabSair.show();
-                            lblSair.setVisibility(View.VISIBLE);
-                            isAllFabsVisible = true;
+                            AbrirFABs();
                         } else {
-                            fabAddLancamento.hide();
-                            lblAddLancamento.setVisibility(View.GONE);
-                            fabRelatorio.hide();
-                            lblRelatorio.setVisibility(View.GONE);
-                            fabPerfil.hide();
-                            lblPerfil.setVisibility(View.GONE);
-                            fabSair.hide();
-                            lblSair.setVisibility(View.GONE);
-                            isAllFabsVisible = false;
+                            FecharFABs();
                         }
                     }
                 });
@@ -100,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        FecharFABs();
                         Intent intent = new Intent(MainActivity.this, LancamentoActivity.class);
                         startActivity(intent);
                     }
@@ -108,7 +91,9 @@ public class MainActivity extends AppCompatActivity {
         fabRelatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Relatório", Toast.LENGTH_SHORT).show();
+                FecharFABs();
+                Intent intent = new Intent(MainActivity.this, RelatorioActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -122,15 +107,19 @@ public class MainActivity extends AppCompatActivity {
         fabPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AbrirTelaPerfil();
+                FecharFABs();
+                AbrirTelaPerfil(true);
             }
         });
     }
 
-    private void AbrirTelaPerfil() {
+    private void AbrirTelaPerfil(boolean openFromMain) {
         Intent intent = new Intent(MainActivity.this, TelaCadastro.class);
         startActivity(intent);
-        finish();
+
+        // Se a activity não foi aberta pelo Main, deve matar ela pra evitar que o usuário volte pra cá de malandro
+        if (!openFromMain)
+            finish();
     }
 
     private void ValidarUsuario() {
@@ -168,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                             dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    AbrirTelaPerfil();
+                                    AbrirTelaPerfil(false);
                                 }
                             });
 
@@ -178,5 +167,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+    }
+
+    private void AbrirFABs() {
+        fabAddLancamento.show();
+        lblAddLancamento.setVisibility(View.VISIBLE);
+        fabRelatorio.show();
+        lblRelatorio.setVisibility(View.VISIBLE);
+        fabPerfil.show();
+        lblPerfil.setVisibility(View.VISIBLE);
+        fabSair.show();
+        lblSair.setVisibility(View.VISIBLE);
+        isAllFabsVisible = true;
+    }
+
+    private void FecharFABs() {
+        fabAddLancamento.hide();
+        lblAddLancamento.setVisibility(View.GONE);
+        fabRelatorio.hide();
+        lblRelatorio.setVisibility(View.GONE);
+        fabPerfil.hide();
+        lblPerfil.setVisibility(View.GONE);
+        fabSair.hide();
+        lblSair.setVisibility(View.GONE);
+        isAllFabsVisible = false;
     }
 }

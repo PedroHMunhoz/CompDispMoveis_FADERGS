@@ -44,4 +44,6 @@
     <string name="erro_data_invalida_lancamento">Data inválida ou não informada!</string>
     <string name="lancamento_efetuado_sucesso">Lançamento efetuado com sucesso!</string>
     <string name="lancamento_erro">Erro no lançamento:</string>
+    <string name="relatorio_date_title">Data:</string>
+    <string name="relatorio_desc_title">Desc:</string>
 </resources>

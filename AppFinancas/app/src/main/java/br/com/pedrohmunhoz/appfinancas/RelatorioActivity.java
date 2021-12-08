@@ -3,21 +3,29 @@ package br.com.pedrohmunhoz.appfinancas;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.List;
 
 public class RelatorioActivity extends AppCompatActivity {
 
     private Button btnGerarRelatorio;
     private EditText txtDataInicial, txtDataFinal;
+    private ListView lvwLancamentos;
+    private ArrayAdapter adapter;
+    private List<Lancamento> lstLancamentos;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +35,9 @@ public class RelatorioActivity extends AppCompatActivity {
         txtDataInicial = findViewById(R.id.txtDataInicial);
         txtDataFinal = findViewById(R.id.txtDataFinal);
         btnGerarRelatorio = findViewById(R.id.btnGerarRelatorio);
+        lvwLancamentos = findViewById(R.id.lvwLancamentos);
+
+        auth = FirebaseAuth.getInstance();
 
         btnGerarRelatorio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +54,7 @@ public class RelatorioActivity extends AppCompatActivity {
                 }
                 else
                 {
-                   //ToDo: Implementar as regras para gerar o relatório e msotrar no listview
+                    CarregarLancamentos();
                 }
             }
         });
@@ -72,5 +83,33 @@ public class RelatorioActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    private void CarregarLancamentos(){
+        String userIdFirebase = auth.getCurrentUser().getUid();
+        String dateFormat = "dd/MM/uuuu";
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter
+                .ofPattern(dateFormat)
+                .withResolverStyle(ResolverStyle.STRICT);
+
+        String dtInicial = txtDataInicial.getText().toString();
+        String dtFinal = txtDataFinal.getText().toString();
+        LocalDate dateInicial = LocalDate.parse(dtInicial, dateTimeFormatter);
+        LocalDate dateFinal = LocalDate.parse(dtFinal, dateTimeFormatter);
+
+        lstLancamentos = LancamentoDAO.getLancamentosByUser(this, userIdFirebase, dateInicial,dateFinal);
+
+        if (lstLancamentos.size() == 0) {
+            Lancamento fake = new Lancamento( "Não existem lançamentos ainda!", this);
+            lstLancamentos.add(fake);
+
+            lvwLancamentos.setEnabled(false);
+        } else {
+            lvwLancamentos.setEnabled(true);
+        }
+
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lstLancamentos);
+
+        lvwLancamentos.setAdapter(adapter);
     }
 }
