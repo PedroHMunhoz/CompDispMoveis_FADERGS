@@ -1,7 +1,5 @@
 package br.com.pedrohmunhoz.appfinancas;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -101,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(MainActivity.this, "Adicionar Lançamento", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, LancamentoActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 });
 

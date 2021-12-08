@@ -33,4 +33,8 @@
     <string name="titulo_botao_relatorio">Generate Report</string>
     <string name="datas_invalidas_relatorios">From or To Date are invalid! Check the informed dates and try again.</string>
     <string name="datas_invalidas_titulo">Invalid Dates</string>
+    <string name="lancar_receita_despesa_titulo">Register Revenue/Expense</string>
+    <string name="btn_lancar">Register</string>
+    <string name="tipo_lancamento">Type</string>
+    <string name="descricao_lancamento_hint">Description</string>
 </resources>

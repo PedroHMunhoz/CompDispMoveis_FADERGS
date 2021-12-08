@@ -33,4 +33,8 @@
     <string name="titulo_botao_relatorio">Gerar Relatório</string>
     <string name="datas_invalidas_relatorios">Data De ou Até inválidas! Verifique os dados digitados e tente novamente.</string>
     <string name="datas_invalidas_titulo">Datas Inválidas</string>
+    <string name="lancar_receita_despesa_titulo">Lançar Receita/Despesa</string>
+    <string name="btn_lancar">Lançar</string>
+    <string name="tipo_lancamento">Tipo</string>
+    <string name="descricao_lancamento_hint">Descrição</string>
 </resources>
