@@ -13,6 +13,7 @@ public class Lancamento {
     public LocalDate data;
     public Context context;
     public String dataFormatada;
+    public String valorFormatado;
 
     public Lancamento(Context context) {
         this.context = context;
@@ -86,12 +87,21 @@ public class Lancamento {
         dataFormatada = data;
     }
 
+    public String getValorFormatado() {
+        return valorFormatado;
+    }
+
+    public void setValorFormatado(String valorFormatado) {
+        this.valorFormatado = "R$ " + valorFormatado;
+    }
+
     @Override
     public String toString() {
         if (tipoLancamento == 0) {
             return descricao;
         } else {
-            return descricao + "   |   " + getTipoLancamentoDsc() + "   |   " + getDataFormatada();
+            String prefixo = (getTipoLancamento() == 1 ? "+ ": "- ");
+            return descricao + "  |  " + prefixo +  getValorFormatado() + "  |  " + getDataFormatada();
         }
     }
 }

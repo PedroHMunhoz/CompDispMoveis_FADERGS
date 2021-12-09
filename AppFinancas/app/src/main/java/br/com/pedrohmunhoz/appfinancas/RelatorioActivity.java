@@ -3,8 +3,10 @@ package br.com.pedrohmunhoz.appfinancas;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,6 +58,14 @@ public class RelatorioActivity extends AppCompatActivity {
                 {
                     CarregarLancamentos();
                 }
+            }
+        });
+
+        lvwLancamentos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Excluir(position);
+                return true;
             }
         });
     }
@@ -111,5 +121,24 @@ public class RelatorioActivity extends AppCompatActivity {
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lstLancamentos);
 
         lvwLancamentos.setAdapter(adapter);
+    }
+
+    private void Excluir(int posicao){
+        final Lancamento lanc = lstLancamentos.get(posicao);
+
+        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+        alerta.setTitle(R.string.alerta_excluir_titulo);
+        alerta.setIcon(android.R.drawable.ic_delete);
+        alerta.setMessage(getString(R.string.alerta_excluir_mensagem) + " " + lanc.getDescricao() + "?");
+        alerta.setNeutralButton(R.string.alerta_excluir_botao_cancelar, null);
+        alerta.setPositiveButton(R.string.alerta_excluir_botao_sim, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                LancamentoDAO.excluir(RelatorioActivity.this, lanc.getId());
+                CarregarLancamentos();
+            }
+        });
+
+        alerta.show();
     }
 }

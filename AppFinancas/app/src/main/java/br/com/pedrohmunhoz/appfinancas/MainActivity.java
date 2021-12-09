@@ -16,6 +16,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton fabParent, fabAddLancamento, fabRelatorio, fabPerfil, fabSair;
@@ -23,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Boolean isAllFabsVisible;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
+    private TextView txtValorReceitas, txtValorDespesas, txtValorTotal;
 
     @Override
     protected void onRestart() {
@@ -49,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         lblPerfil = findViewById(R.id.lblPerfil);
         lblSair = findViewById(R.id.lblSair);
         lblNomeUsuarioLogado = findViewById(R.id.lblNomeUsuarioLogado);
+        txtValorReceitas = findViewById(R.id.txtValorReceitas);
+        txtValorDespesas = findViewById(R.id.txtValorDespesas);
+        txtValorTotal = findViewById(R.id.txtValorTotal);
 
         fabAddLancamento.setVisibility(View.GONE);
         fabRelatorio.setVisibility(View.GONE);
@@ -128,7 +138,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-       PreencherNomeUsuarioLogado();
+        PreencherNomeUsuarioLogado();
+
     }
 
     @Override
@@ -208,16 +219,42 @@ public class MainActivity extends AppCompatActivity {
         isAllFabsVisible = false;
     }
 
-    private void PreencherNomeUsuarioLogado(){
+    private void PreencherNomeUsuarioLogado() {
         FirebaseUser user = auth.getCurrentUser();
         Usuario userDb = UsuarioDAO.getUsuarioByID(MainActivity.this, user.getUid());
 
-        if(userDb != null){
+        if (userDb != null) {
             String nomeUsuarioLogado = userDb.getNome();
 
-            if(nomeUsuarioLogado!= null && !nomeUsuarioLogado.isEmpty()){
+            if (nomeUsuarioLogado != null && !nomeUsuarioLogado.isEmpty()) {
                 lblNomeUsuarioLogado.setText(nomeUsuarioLogado + "!");
             }
+
+            CalcularTotaisUsuario();
+        }
+    }
+
+    private void CalcularTotaisUsuario() {
+        FirebaseUser user = auth.getCurrentUser();
+        Date dt = Calendar.getInstance().getTime();
+
+        LocalDate dataInicial = LocalDate.now().minusDays(7);
+        LocalDate dataFinal = LocalDate.now();
+
+        TotaisLancamentos totais = LancamentoDAO.GetTotaisLancamentosUltimos7DiasByUser(MainActivity.this, user.getUid(), dataInicial, dataFinal);
+
+        Locale current = Locale.getDefault();
+        NumberFormat formatter = NumberFormat.getInstance(current);
+        formatter.setMaximumFractionDigits(2);
+
+        String receitasFormat = formatter.format(totais.valorReceitas);
+        String despesasFormat = formatter.format(totais.valorDespesas);
+        String totalFormat = formatter.format(totais.valorTotal);
+
+        if (totais != null) {
+            txtValorReceitas.setText("R$ " + receitasFormat);
+            txtValorDespesas.setText("R$ " + despesasFormat);
+            txtValorTotal.setText("R$ " + totalFormat);
         }
     }
 }

@@ -49,4 +49,8 @@
     <string name="etNome_vazio">Nome não pode estar em branco!</string>
     <string name="usuarioAtualizado">Usuário atualizado com sucesso!</string>
     <string name="seja_bem_vindo_titulo">Seja bem-vindo(a),</string>
+    <string name="alerta_excluir_mensagem">Confirma exclusão do lançamento</string>
+    <string name="alerta_excluir_titulo">Excluir</string>
+    <string name="alerta_excluir_botao_cancelar">Cancelar</string>
+    <string name="alerta_excluir_botao_sim">SIM</string>
 </resources>

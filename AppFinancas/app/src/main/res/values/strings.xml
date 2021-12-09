@@ -49,4 +49,8 @@
     <string name="etNome_vazio">Name cannot be empty!</string>
     <string name="usuarioAtualizado">User updated successfully!</string>
     <string name="seja_bem_vindo_titulo">Welcome, </string>
+    <string name="alerta_excluir_mensagem">Confirm delete of</string>
+    <string name="alerta_excluir_titulo">Delete</string>
+    <string name="alerta_excluir_botao_cancelar">Cancel</string>
+    <string name="alerta_excluir_botao_sim">Yes</string>
 </resources>
