@@ -5,11 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
+    android:background="#FCFDFD"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="#FCFDFD"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginBottom="20dp"
+            android:text="@string/seja_bem_vindo_titulo"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/lblNomeUsuarioLogado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,9 +44,9 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp"
         android:text="@string/titulo_dashboard"
-        android:textSize="25sp"
-        android:textColor="#3F51B5"
         android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

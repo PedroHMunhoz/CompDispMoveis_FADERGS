@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton fabParent, fabAddLancamento, fabRelatorio, fabPerfil, fabSair;
-    private TextView lblAddLancamento, lblRelatorio, lblPerfil, lblSair;
+    private TextView lblAddLancamento, lblRelatorio, lblPerfil, lblSair, lblNomeUsuarioLogado;
     private Boolean isAllFabsVisible;
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         lblRelatorio = findViewById(R.id.lblRelatorio);
         lblPerfil = findViewById(R.id.lblPerfil);
         lblSair = findViewById(R.id.lblSair);
+        lblNomeUsuarioLogado = findViewById(R.id.lblNomeUsuarioLogado);
 
         fabAddLancamento.setVisibility(View.GONE);
         fabRelatorio.setVisibility(View.GONE);
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         ValidarUsuario();
 
         auth.addAuthStateListener(authStateListener);
+
+        PreencherNomeUsuarioLogado();
 
         fabParent.setOnClickListener(
                 new View.OnClickListener() {
@@ -122,6 +125,18 @@ public class MainActivity extends AppCompatActivity {
             finish();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+       PreencherNomeUsuarioLogado();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        PreencherNomeUsuarioLogado();
+    }
+
     private void ValidarUsuario() {
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -142,10 +157,10 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     } else {
                         // Pega o valor da propriedade Nome do usuário cadastrado no SQLite
-                        String nomeUsuarioDb = userDb.getNome();
+                        String nomeUsuario = userDb.getNome();
 
                         // Se estiver NULL ou vazio, mostra mensagem de alerta e direciona pra activity de perfil
-                        if (nomeUsuarioDb == null || nomeUsuarioDb.isEmpty()) {
+                        if (nomeUsuario == null || nomeUsuario.isEmpty()) {
                             AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                             dialog.setTitle(R.string.cadastro_incompleto_dialog_title);
                             dialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -191,5 +206,18 @@ public class MainActivity extends AppCompatActivity {
         fabSair.hide();
         lblSair.setVisibility(View.GONE);
         isAllFabsVisible = false;
+    }
+
+    private void PreencherNomeUsuarioLogado(){
+        FirebaseUser user = auth.getCurrentUser();
+        Usuario userDb = UsuarioDAO.getUsuarioByID(MainActivity.this, user.getUid());
+
+        if(userDb != null){
+            String nomeUsuarioLogado = userDb.getNome();
+
+            if(nomeUsuarioLogado!= null && !nomeUsuarioLogado.isEmpty()){
+                lblNomeUsuarioLogado.setText(nomeUsuarioLogado + "!");
+            }
+        }
     }
 }

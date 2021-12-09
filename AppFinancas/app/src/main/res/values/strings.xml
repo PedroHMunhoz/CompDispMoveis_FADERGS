@@ -48,4 +48,5 @@
     <string name="relatorio_desc_title">Desc:</string>
     <string name="etNome_vazio">Name cannot be empty!</string>
     <string name="usuarioAtualizado">User updated successfully!</string>
+    <string name="seja_bem_vindo_titulo">Welcome, </string>
 </resources>
