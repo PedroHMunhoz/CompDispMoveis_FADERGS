@@ -46,7 +46,6 @@ public class TelaInicial extends AppCompatActivity {
                 if (user != null) {
                     Intent intent = new Intent(TelaInicial.this, MainActivity.class);
                     startActivity(intent);
-                    finish();
                 }
             }
         };

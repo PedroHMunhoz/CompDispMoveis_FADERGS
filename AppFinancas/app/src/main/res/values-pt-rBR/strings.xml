@@ -46,4 +46,6 @@
     <string name="lancamento_erro">Erro no lançamento:</string>
     <string name="relatorio_date_title">Data:</string>
     <string name="relatorio_desc_title">Desc:</string>
+    <string name="etNome_vazio">Nome não pode estar em branco!</string>
+    <string name="usuarioAtualizado">Usuário atualizado com sucesso!</string>
 </resources>

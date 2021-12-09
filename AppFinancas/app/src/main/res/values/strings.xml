@@ -46,4 +46,6 @@
     <string name="lancamento_erro">Error:</string>
     <string name="relatorio_date_title">Date:</string>
     <string name="relatorio_desc_title">Desc:</string>
+    <string name="etNome_vazio">Name cannot be empty!</string>
+    <string name="usuarioAtualizado">User updated successfully!</string>
 </resources>

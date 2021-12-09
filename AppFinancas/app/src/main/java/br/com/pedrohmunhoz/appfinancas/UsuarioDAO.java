@@ -30,7 +30,7 @@ public class UsuarioDAO {
         Conexao conn = new Conexao(context);
         SQLiteDatabase db = conn.getWritableDatabase();
 
-        db.update("usuario", values, "id = " + usuario.getId(), null);
+        db.update("usuario", values, "id = '" + usuario.getId() + "'", null);
     }
 
     public static Usuario getUsuarioByID(Context context, String idUsuario) {
