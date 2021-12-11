@@ -23,6 +23,8 @@ public class Conexao extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        if (oldVersion < 2) {
             db.execSQL("CREATE TABLE IF NOT EXISTS lancamento (" +
                     "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "usuario_id TEXT NOT NULL," +
@@ -30,5 +32,6 @@ public class Conexao extends SQLiteOpenHelper {
                     "tipoLancamento INT NOT NULL," +
                     "valor DOUBLE NOT NULL," +
                     "data DATE NOT NULL)");
+        }
     }
 }

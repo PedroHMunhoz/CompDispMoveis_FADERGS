@@ -103,6 +103,25 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <DatePicker
+            android:id="@+id/dtpDataInicial"
+            android:datePickerMode="calendar"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
+
+        <DatePicker
+            android:id="@+id/dtpDataFinal"
+            android:datePickerMode="calendar"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
+
+
         <ListView
             android:id="@+id/lvwLancamentos"
             android:layout_width="match_parent"

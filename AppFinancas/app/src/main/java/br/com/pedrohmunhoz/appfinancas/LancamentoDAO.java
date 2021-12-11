@@ -86,8 +86,10 @@ public class LancamentoDAO {
 
         Cursor cursor = db.rawQuery("SELECT * FROM lancamento WHERE usuario_id = '" + idUsuario + "' AND data BETWEEN '" + dataInicio.toString() + "' AND '" + dataFim.toString() + "' ORDER BY data DESC", null);
 
+        TotaisLancamentos totais = new TotaisLancamentos();
+
         if (cursor.getCount() > 0) {
-            TotaisLancamentos totais = new TotaisLancamentos();
+
 
             cursor.moveToFirst();
             do {
@@ -108,10 +110,13 @@ public class LancamentoDAO {
             totais.setValorReceitas(totalReceitas);
             totais.setValorDespesas(totalDespesas);
             totais.setValorTotal(total);
-            return totais;
         } else {
-            return null;
+            totais.setValorReceitas(0);
+            totais.setValorDespesas(0);
+            totais.setValorTotal(0);
         }
+
+        return totais;
     }
 
     public static void excluir(Context context, int idLancamento) {

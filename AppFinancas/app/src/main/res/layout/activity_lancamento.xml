@@ -87,6 +87,15 @@
             android:hint="01/10/2021"
             android:inputType="date" />
 
+        <DatePicker
+            android:id="@+id/dtpData"
+            android:datePickerMode="calendar"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
+
         <Button
             android:id="@+id/btnLancar"
             android:layout_width="wrap_content"

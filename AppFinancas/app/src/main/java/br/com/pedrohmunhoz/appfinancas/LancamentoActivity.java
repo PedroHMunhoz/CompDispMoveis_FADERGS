@@ -2,25 +2,31 @@ package br.com.pedrohmunhoz.appfinancas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.Calendar;
 
 public class LancamentoActivity extends AppCompatActivity {
     private EditText txtDescricaoLancamento;
     private RadioButton rdbReceita, rdbDespesa;
-    private EditText txtValor;
-    private EditText txtData;
+    private EditText txtValor, txtData;
+    private DatePicker dtpData;
     private Button btnLancar;
     private FirebaseAuth auth;
 
@@ -33,6 +39,7 @@ public class LancamentoActivity extends AppCompatActivity {
         rdbReceita = findViewById(R.id.rdbReceita);
         rdbDespesa = findViewById(R.id.rdbDespesa);
         txtValor = findViewById(R.id.txtValor);
+        dtpData = findViewById(R.id.dtpData);
         txtData = findViewById(R.id.txtData);
         btnLancar = findViewById(R.id.btnLancar);
 
@@ -46,6 +53,29 @@ public class LancamentoActivity extends AppCompatActivity {
                 }
             }
         });
+
+        txtData.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(txtData.getWindowToken(), 0);
+                dtpData.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
+
+        dtpData.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, monthOfYear, dayOfMonth);
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String dataLancamento = sdf.format(calendar.getTime());
+                txtData.setText(dataLancamento);
+                dtpData.setVisibility(View.GONE);
+            }
+        });
     }
 
     private boolean ValidarDados() {
@@ -53,6 +83,7 @@ public class LancamentoActivity extends AppCompatActivity {
         int tipoLancamento = (rdbReceita.isChecked() ? 1 : 2);
         String valorDigitado = txtValor.getText().toString();
         String dataLancamento = txtData.getText().toString();
+
         String dateFormat = "dd/MM/uuuu";
 
         if (descricao.equals("")) {
@@ -87,7 +118,6 @@ public class LancamentoActivity extends AppCompatActivity {
             Toast.makeText(LancamentoActivity.this, R.string.erro_data_invalida_lancamento, Toast.LENGTH_LONG).show();
             return false;
         }
-
         return true;
     }
 

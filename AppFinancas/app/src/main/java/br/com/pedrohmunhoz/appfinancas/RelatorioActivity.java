@@ -3,21 +3,27 @@ package br.com.pedrohmunhoz.appfinancas;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.Calendar;
 import java.util.List;
 
 public class RelatorioActivity extends AppCompatActivity {
@@ -28,6 +34,7 @@ public class RelatorioActivity extends AppCompatActivity {
     private ArrayAdapter adapter;
     private List<Lancamento> lstLancamentos;
     private FirebaseAuth auth;
+    private DatePicker dtpDataInicial, dtpDataFinal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,8 @@ public class RelatorioActivity extends AppCompatActivity {
         txtDataFinal = findViewById(R.id.txtDataFinal);
         btnGerarRelatorio = findViewById(R.id.btnGerarRelatorio);
         lvwLancamentos = findViewById(R.id.lvwLancamentos);
+        dtpDataInicial = findViewById(R.id.dtpDataInicial);
+        dtpDataFinal = findViewById(R.id.dtpDataFinal);
 
         auth = FirebaseAuth.getInstance();
 
@@ -66,6 +75,54 @@ public class RelatorioActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Excluir(position);
                 return true;
+            }
+        });
+
+        txtDataInicial.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(txtDataInicial.getWindowToken(), 0);
+                dtpDataInicial.setVisibility(View.VISIBLE);
+                dtpDataFinal.setVisibility(View.GONE);
+                return true;
+            }
+        });
+
+        txtDataFinal.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(txtDataFinal.getWindowToken(), 0);
+                dtpDataFinal.setVisibility(View.VISIBLE);
+                dtpDataInicial.setVisibility(View.GONE);
+                return true;
+            }
+        });
+
+        dtpDataInicial.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, monthOfYear, dayOfMonth);
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String dataLancamento = sdf.format(calendar.getTime());
+                txtDataInicial.setText(dataLancamento);
+                dtpDataInicial.setVisibility(View.GONE);
+            }
+        });
+
+        dtpDataFinal.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, monthOfYear, dayOfMonth);
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String dataLancamento = sdf.format(calendar.getTime());
+                txtDataFinal.setText(dataLancamento);
+                dtpDataFinal.setVisibility(View.GONE);
             }
         });
     }
