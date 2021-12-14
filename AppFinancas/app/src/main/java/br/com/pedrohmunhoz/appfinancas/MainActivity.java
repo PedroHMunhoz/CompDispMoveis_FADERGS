@@ -4,6 +4,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,8 +23,10 @@ import android.widget.TextView;
 
 import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private TextView txtValorReceitas, txtValorDespesas, txtValorTotal;
+    PieChart pieChart;
+    PieData pieData;
+    List<PieEntry> pieEntryList = new ArrayList<>();
+    private double valorTotalReceitas, valorTotalDespesas, valorTotal;
 
     @Override
     protected void onRestart() {
@@ -70,14 +81,20 @@ public class MainActivity extends AppCompatActivity {
         lblSair.setVisibility(View.GONE);
         isAllFabsVisible = false;
 
+        // Configuração do gráfico de pizza
+        pieChart = findViewById(R.id.graficoPizzaMain);
+        pieChart.setUsePercentValues(false);
+        pieChart.setDrawHoleEnabled(false);
+        Description description = pieChart.getDescription();
+        description.setEnabled(false);
+        description.setText("");
+
         auth = FirebaseAuth.getInstance();
 
         // Valida o usuário logado via FireBase e se o cadastro está completo
         ValidarUsuario();
 
         auth.addAuthStateListener(authStateListener);
-
-        PreencherNomeUsuarioLogado();
 
         fabParent.setOnClickListener(
                 new View.OnClickListener() {
@@ -136,15 +153,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        PreencherNomeUsuarioLogado();
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         PreencherNomeUsuarioLogado();
+        CalcularTotaisUsuario();
+        RefreshGrafico();
+    }
+
+    private void RefreshGrafico() {
+        pieChart.clear();
+        pieEntryList = new ArrayList<>();
+
+        if (valorTotalReceitas > 0 && valorTotalDespesas > 0) {
+            pieChart.setVisibility(View.VISIBLE);
+            pieEntryList.add(new PieEntry((float) valorTotalReceitas, getString(R.string.titulo_receitas)));
+            pieEntryList.add(new PieEntry((float) valorTotalDespesas, getString(R.string.titulo_despesas)));
+            PieDataSet pieDataSet = new PieDataSet(pieEntryList, "");
+
+            if (valorTotalReceitas > 0 && valorTotalDespesas > 0) {
+                pieDataSet.setColors(new int[]{R.color.colorReceitas, R.color.colorDespesas}, MainActivity.this);
+            }
+
+            pieData = new PieData(pieDataSet);
+            pieChart.setData(pieData);
+            pieChart.invalidate();
+        } else {
+            pieChart.setVisibility(View.GONE);
+        }
     }
 
     private void ValidarUsuario() {
@@ -228,8 +263,6 @@ public class MainActivity extends AppCompatActivity {
             if (nomeUsuarioLogado != null && !nomeUsuarioLogado.isEmpty()) {
                 lblNomeUsuarioLogado.setText(nomeUsuarioLogado + "!");
             }
-
-            CalcularTotaisUsuario();
         }
     }
 
@@ -251,6 +284,11 @@ public class MainActivity extends AppCompatActivity {
         String totalFormat = formatter.format(totais.valorTotal);
 
         if (totais != null) {
+
+            valorTotalReceitas = totais.valorReceitas;
+            valorTotalDespesas = totais.valorDespesas;
+            valorTotal = totais.valorTotal;
+
             txtValorReceitas.setText("R$ " + receitasFormat);
             txtValorDespesas.setText("R$ " + despesasFormat);
             txtValorTotal.setText("R$ " + totalFormat);

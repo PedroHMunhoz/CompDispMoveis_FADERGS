@@ -99,8 +99,8 @@
             android:layout_marginTop="15dp"
             android:text="R$ 1000,00"
             android:textColor="#ff0000"
-            android:textStyle="bold"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/lblTituloDespesas"
             app:layout_constraintStart_toStartOf="@+id/lblTituloDespesas"
             app:layout_constraintTop_toBottomOf="@+id/lblTituloDespesas" />
@@ -124,14 +124,17 @@
             android:layout_marginTop="15dp"
             android:text="R$ 1000,00"
             android:textColor="#4da6ff"
-            android:textStyle="bold"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/lblTituloTotal"
             app:layout_constraintStart_toStartOf="@+id/lblTituloTotal"
             app:layout_constraintTop_toBottomOf="@+id/lblTituloTotal" />
 
-
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/graficoPizzaMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="180dp"
+            android:layout_marginBottom="100dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </LinearLayout>
