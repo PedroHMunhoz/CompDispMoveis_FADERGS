@@ -56,4 +56,8 @@
     <string name="mensagem_sem_lancamentos_no_periodo">Não foram encontrados lançamentos com os filtros informados.</string>
     <string name="datas_vazias_relatorio">Preencha as datas De e Até para gerar o relatório!</string>
     <string name="datas_vazias_relatorio_titulo">Datas não informadas</string>
+    <string name="etConta">Digite seu número da conta aqui...</string>
+    <string name="butSalvar">Salvar</string>
+    <string name="txtBanco">Nome do Banco:</string>
+    <string name="edNomeBanco">Digite o nome do banco aqui..</string>
 </resources>

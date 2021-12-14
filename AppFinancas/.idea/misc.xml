@@ -3,16 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_conta.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_data.xml" value="0.9879032258064516" />
+        <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_lancamento.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_relatorio.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.25" />
+        <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_tela_conta.xml" value="0.22" />
         <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_tela_inicial.xml" value="0.22" />
         <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/activity_tldois.xml" value="0.2" />
-        <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/content_main.xml" value="0.12" />
+        <entry key="..\:/Users/Kassandra/Desktop/Trabalho Final/CompDispMoveis_FADERGS/AppFinancas/app/src/main/res/layout/content_main.xml" value="0.22" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

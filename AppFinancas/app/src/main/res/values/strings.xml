@@ -56,4 +56,8 @@
     <string name="mensagem_sem_lancamentos_no_periodo">No records has been found with the informed filters.</string>
     <string name="datas_vazias_relatorio">Please fill the From and To Date to generate the report!</string>
     <string name="datas_vazias_relatorio_titulo">Dates not informed</string>
+    <string name="etConta">Enter your account number here...</string>
+    <string name="butSalvar">Save</string>
+    <string name="txtBanco">Bank Name:</string>
+    <string name="edNomeBanco">Enter the bank name here..</string>
 </resources>
