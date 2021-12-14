@@ -60,4 +60,7 @@
     <string name="butSalvar">Save</string>
     <string name="txtBanco">Bank Name:</string>
     <string name="edNomeBanco">Enter the bank name here..</string>
+    <string name="txtConta">Bank Account</string>
+    <string name="txtNumConta">Account Number</string>
+    <string name="txtSaldoInicial">Starting Balance</string>
 </resources>

@@ -60,4 +60,7 @@
     <string name="butSalvar">Salvar</string>
     <string name="txtBanco">Nome do Banco:</string>
     <string name="edNomeBanco">Digite o nome do banco aqui..</string>
+    <string name="txtConta">Conta Bancária</string>
+    <string name="txtNumConta">Número da Conta</string>
+    <string name="txtSaldoInicial">Saldo Inicial</string>
 </resources>
