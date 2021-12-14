@@ -4,7 +4,7 @@
     <string name="titulo_receitas">Revenues</string>
     <string name="titulo_despesas">Expenses</string>
     <string name="titulo_total">Total</string>
-    <string name="texto_fab_adicionar_lancamento">Add Entry</string>
+    <string name="texto_fab_adicionar_lancamento">Register Revenue/Expense</string>
     <string name="texto_fab_relatorio">Report</string>
     <string name="texto_email">Email</string>
     <string name="texto_senha">Password</string>
@@ -18,7 +18,7 @@
     <string name="signup_error_message">Error in signup. Check the informed data.</string>
     <string name="texto_fab_perfil">My Profile</string>
     <string name="texto_fab_sair">Logout</string>
-    <string name="txtCadastro">Customer Registration</string>
+    <string name="txtCadastro">My Profile</string>
     <string name="txtNome">Name:</string>
     <string name="etNome">Enter your name here...</string>
     <string name="txtEmail">Email:</string>
@@ -53,4 +53,7 @@
     <string name="alerta_excluir_titulo">Delete</string>
     <string name="alerta_excluir_botao_cancelar">Cancel</string>
     <string name="alerta_excluir_botao_sim">Yes</string>
+    <string name="mensagem_sem_lancamentos_no_periodo">No records has been found with the informed filters.</string>
+    <string name="datas_vazias_relatorio">Please fill the From and To Date to generate the report!</string>
+    <string name="datas_vazias_relatorio_titulo">Dates not informed</string>
 </resources>

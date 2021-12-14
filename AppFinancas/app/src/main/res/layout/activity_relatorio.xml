@@ -14,6 +14,12 @@
         android:orientation="vertical"
         android:padding="30dp">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_relatorio" />
+
         <TextView
             android:id="@+id/txtRelatorio"
             android:layout_width="wrap_content"
@@ -105,30 +111,27 @@
 
         <DatePicker
             android:id="@+id/dtpDataInicial"
-            android:datePickerMode="calendar"
-            android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            />
+            android:layout_marginBottom="15dp"
+            android:datePickerMode="calendar"
+            android:visibility="gone" />
 
         <DatePicker
             android:id="@+id/dtpDataFinal"
-            android:datePickerMode="calendar"
-            android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            />
+            android:layout_marginBottom="15dp"
+            android:datePickerMode="calendar"
+            android:visibility="gone" />
 
 
         <ListView
             android:id="@+id/lvwLancamentos"
             android:layout_width="match_parent"
             android:layout_height="500dp"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="30dp" />
     </LinearLayout>
-
 
 
 </ScrollView>

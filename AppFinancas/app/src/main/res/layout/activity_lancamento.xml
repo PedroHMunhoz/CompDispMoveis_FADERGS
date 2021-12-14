@@ -16,6 +16,12 @@
         android:orientation="vertical"
         android:padding="30dp">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_receita_despesa" />
+
         <TextView
             android:id="@+id/txtAdicionarLancamento"
             android:layout_width="wrap_content"
@@ -37,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:hint="@string/descricao_lancamento_hint"
-            android:inputType="textCapWords"/>
+            android:inputType="textCapWords" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -89,12 +95,11 @@
 
         <DatePicker
             android:id="@+id/dtpData"
-            android:datePickerMode="calendar"
-            android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            />
+            android:layout_marginBottom="15dp"
+            android:datePickerMode="calendar"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnLancar"

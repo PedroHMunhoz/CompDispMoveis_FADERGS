@@ -53,8 +53,15 @@ public class RelatorioActivity extends AppCompatActivity {
         btnGerarRelatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!ValidarDatas())
-                {
+                if (DatasVazias()) {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(RelatorioActivity.this);
+                    alert.setTitle(R.string.datas_vazias_relatorio_titulo);
+                    alert.setCancelable(false);
+                    alert.setMessage(R.string.datas_vazias_relatorio);
+                    alert.setIcon(android.R.drawable.ic_dialog_alert);
+                    alert.setNeutralButton("OK", null);
+                    alert.show();
+                } else if (!ValidarDatas()) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(RelatorioActivity.this);
                     alert.setTitle(R.string.datas_invalidas_titulo);
                     alert.setCancelable(false);
@@ -62,9 +69,7 @@ public class RelatorioActivity extends AppCompatActivity {
                     alert.setIcon(android.R.drawable.ic_dialog_alert);
                     alert.setNeutralButton("OK", null);
                     alert.show();
-                }
-                else
-                {
+                } else {
                     CarregarLancamentos();
                 }
             }
@@ -81,7 +86,7 @@ public class RelatorioActivity extends AppCompatActivity {
         txtDataInicial.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(txtDataInicial.getWindowToken(), 0);
                 dtpDataInicial.setVisibility(View.VISIBLE);
                 dtpDataFinal.setVisibility(View.GONE);
@@ -92,7 +97,7 @@ public class RelatorioActivity extends AppCompatActivity {
         txtDataFinal.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(txtDataFinal.getWindowToken(), 0);
                 dtpDataFinal.setVisibility(View.VISIBLE);
                 dtpDataInicial.setVisibility(View.GONE);
@@ -127,7 +132,7 @@ public class RelatorioActivity extends AppCompatActivity {
         });
     }
 
-    private Boolean ValidarDatas(){
+    private Boolean ValidarDatas() {
         String dtInicial = txtDataInicial.getText().toString();
         String dtFinal = txtDataFinal.getText().toString();
 
@@ -152,7 +157,7 @@ public class RelatorioActivity extends AppCompatActivity {
         return true;
     }
 
-    private void CarregarLancamentos(){
+    private void CarregarLancamentos() {
         String userIdFirebase = auth.getCurrentUser().getUid();
         String dateFormat = "dd/MM/uuuu";
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter
@@ -164,10 +169,10 @@ public class RelatorioActivity extends AppCompatActivity {
         LocalDate dateInicial = LocalDate.parse(dtInicial, dateTimeFormatter);
         LocalDate dateFinal = LocalDate.parse(dtFinal, dateTimeFormatter);
 
-        lstLancamentos = LancamentoDAO.getLancamentosByUser(this, userIdFirebase, dateInicial,dateFinal);
+        lstLancamentos = LancamentoDAO.getLancamentosByUser(this, userIdFirebase, dateInicial, dateFinal);
 
         if (lstLancamentos.size() == 0) {
-            Lancamento fake = new Lancamento( "Não existem lançamentos ainda!", this);
+            Lancamento fake = new Lancamento(getString(R.string.mensagem_sem_lancamentos_no_periodo), this);
             lstLancamentos.add(fake);
 
             lvwLancamentos.setEnabled(false);
@@ -180,7 +185,7 @@ public class RelatorioActivity extends AppCompatActivity {
         lvwLancamentos.setAdapter(adapter);
     }
 
-    private void Excluir(int posicao){
+    private void Excluir(int posicao) {
         final Lancamento lanc = lstLancamentos.get(posicao);
 
         AlertDialog.Builder alerta = new AlertDialog.Builder(this);
@@ -197,5 +202,20 @@ public class RelatorioActivity extends AppCompatActivity {
         });
 
         alerta.show();
+    }
+
+    private boolean DatasVazias() {
+        String dtInicial = txtDataInicial.getText().toString();
+        String dtFinal = txtDataFinal.getText().toString();
+
+        if (dtInicial.isEmpty()) {
+            return true;
+        }
+
+        if (dtFinal.isEmpty()) {
+            return true;
+        }
+
+        return false;
     }
 }

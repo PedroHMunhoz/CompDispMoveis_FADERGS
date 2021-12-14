@@ -4,7 +4,7 @@
     <string name="titulo_receitas">Receitas</string>
     <string name="titulo_despesas">Despesas</string>
     <string name="titulo_total">Total</string>
-    <string name="texto_fab_adicionar_lancamento">Adicionar Lançamento</string>
+    <string name="texto_fab_adicionar_lancamento">Lançar Receita/Despesa</string>
     <string name="texto_fab_relatorio">Relatório</string>
     <string name="texto_email">Email</string>
     <string name="texto_senha">Senha</string>
@@ -18,7 +18,7 @@
     <string name="signup_error_message">Erro ao cadastrar. Verifique os dados digitados.</string>
     <string name="texto_fab_perfil">Meu Perfil</string>
     <string name="texto_fab_sair">Deslogar</string>
-    <string name="txtCadastro">Cadastro Cliente</string>
+    <string name="txtCadastro">Meu Perfil</string>
     <string name="txtNome">Nome:</string>
     <string name="etNome">Digite seu nome aqui...</string>
     <string name="txtEmail">Email:</string>
@@ -53,4 +53,7 @@
     <string name="alerta_excluir_titulo">Excluir</string>
     <string name="alerta_excluir_botao_cancelar">Cancelar</string>
     <string name="alerta_excluir_botao_sim">SIM</string>
+    <string name="mensagem_sem_lancamentos_no_periodo">Não foram encontrados lançamentos com os filtros informados.</string>
+    <string name="datas_vazias_relatorio">Preencha as datas De e Até para gerar o relatório!</string>
+    <string name="datas_vazias_relatorio_titulo">Datas não informadas</string>
 </resources>
