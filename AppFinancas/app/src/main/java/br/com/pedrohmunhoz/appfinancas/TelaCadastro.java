@@ -23,6 +23,7 @@ public class TelaCadastro extends AppCompatActivity {
     EditText etEmail;
     EditText etNome;
     private FirebaseAuth auth;
+    private Button btnListaContasUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,16 @@ public class TelaCadastro extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
+            }
+        });
+
+        btnListaContasUsuario = findViewById(R.id.btnListaContasUsuario);
+
+        btnListaContasUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TelaCadastro.this, TelaLista.class);
+                startActivity(intent);
             }
         });
     }

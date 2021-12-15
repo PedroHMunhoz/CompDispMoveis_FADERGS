@@ -70,4 +70,5 @@
     <string name="data_lancamento">Date</string>
     <string name="data_inicio_relatorio_hint">01/10/2021</string>
     <string name="data_fim_relatorio_hint">31/10/2021</string>
+    <string name="btn_lista_contas_usuario">My Bank Accounts</string>
 </resources>

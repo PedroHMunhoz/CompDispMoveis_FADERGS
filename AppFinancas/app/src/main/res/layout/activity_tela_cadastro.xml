@@ -76,5 +76,14 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/btnSalvar"
             android:textSize="@dimen/buttons_font_size" />
+
+        <Button
+            android:id="@+id/btnListaContasUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/btn_lista_contas_usuario"
+            android:textSize="@dimen/buttons_font_size" />
     </LinearLayout>
 </ScrollView>
