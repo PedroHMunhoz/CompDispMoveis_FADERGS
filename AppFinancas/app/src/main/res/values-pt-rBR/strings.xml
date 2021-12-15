@@ -17,7 +17,7 @@
     <string name="login_error_message">Erro ao fazer o login. Verifique o usuário e senha digitados.</string>
     <string name="signup_error_message">Erro ao cadastrar. Verifique os dados digitados.</string>
     <string name="texto_fab_perfil">Meu Perfil</string>
-    <string name="texto_fab_sair">Deslogar</string>
+    <string name="texto_fab_sair">Sair</string>
     <string name="txtCadastro">Meu Perfil</string>
     <string name="txtNome">Nome:</string>
     <string name="etNome">Digite seu nome aqui...</string>

@@ -22,9 +22,8 @@
             android:layout_gravity="start"
             android:layout_marginBottom="20dp"
             android:text="@string/seja_bem_vindo_titulo"
-            android:textColor="#3F51B5"
             android:textSize="20sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/lblNomeUsuarioLogado"
@@ -33,9 +32,8 @@
             android:layout_gravity="start"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="20dp"
-            android:textColor="#3F51B5"
             android:textSize="20sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TextView
@@ -45,7 +43,6 @@
         android:layout_marginBottom="30dp"
         android:text="@string/titulo_dashboard"
         android:textAlignment="center"
-        android:textColor="#3F51B5"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -63,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="@string/titulo_receitas"
-            android:textColor="#3F51B5"
+            android:textColor="#00802b"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:text="@string/titulo_despesas"
-            android:textColor="#3F51B5"
+            android:textColor="#ff0000"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -111,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="@string/titulo_total"
-            android:textColor="#3F51B5"
+            android:textColor="#4da6ff"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/txtValorDespesas"
             app:layout_constraintStart_toStartOf="@+id/txtValorReceitas"
@@ -135,6 +132,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="180dp"
-            android:layout_marginBottom="100dp" />
+            android:layout_marginBottom="150dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

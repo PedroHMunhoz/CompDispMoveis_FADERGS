@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,19 +20,16 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
             android:text="@string/app_name"
-            android:textColor="#3F51B5"
             android:textSize="30dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="162dp"
-            tools:layout_editor_absoluteY="85dp" />
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo_financas"
-            android:layout_marginBottom="30dp"
             android:layout_gravity="center_horizontal"
-            android:scaleType="fitXY" />
+            android:layout_marginBottom="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo_financas" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,10 +38,8 @@
             android:layout_marginBottom="10dp"
             android:text="@string/texto_email"
             android:textAlignment="center"
-            android:textColor="#3F51B5"
             android:textSize="25dp"
             android:textStyle="bold" />
-
 
         <EditText
             android:id="@+id/etEmail"
@@ -57,11 +51,8 @@
             android:hint="@string/txtHintEmail"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
-            android:textColor="#3F51B5"
             android:textSize="15dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="92dp"
-            tools:layout_editor_absoluteY="159dp" />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +61,6 @@
             android:layout_marginBottom="10dp"
             android:text="@string/texto_senha"
             android:textAlignment="center"
-            android:textColor="#3F51B5"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -84,21 +74,15 @@
             android:hint="@string/txtHintSenha"
             android:inputType="textPassword"
             android:textAlignment="center"
-            android:textColor="#3F51B5"
             android:textSize="15dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="260dp" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btEntrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="#3F51B5"
-            android:text="@string/texto_bt_entrar"
-            tools:layout_editor_absoluteX="158dp"
-            tools:layout_editor_absoluteY="385dp" />
+            android:text="@string/texto_bt_entrar" />
 
         <Button
             android:id="@+id/btCadastrar"
@@ -106,11 +90,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#3F51B5"
-            android:text="@string/texto_bt_cadastrar"
-            tools:layout_editor_absoluteX="158dp"
-            tools:layout_editor_absoluteY="385dp" />
-
+            android:text="@string/texto_bt_cadastrar" />
     </LinearLayout>
-
 </ScrollView>
