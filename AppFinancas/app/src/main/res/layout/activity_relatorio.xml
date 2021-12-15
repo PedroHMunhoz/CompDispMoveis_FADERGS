@@ -28,7 +28,7 @@
             android:layout_marginBottom="30dp"
             android:text="@string/txtRelatorio"
             android:textAlignment="center"
-            android:textSize="30dp"
+            android:textSize="@dimen/title_activity"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="162dp"
             tools:layout_editor_absoluteY="85dp" />
@@ -49,7 +49,7 @@
                 android:width="120dp"
                 android:gravity="center_horizontal"
                 android:text="@string/titulo_datainicial_relatorio"
-                android:textSize="25sp"
+                android:textSize="@dimen/caption_inputs"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,12 +57,13 @@
                 android:id="@+id/txtDataInicial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/input_caption_margin_bottom"
                 android:width="120dp"
-                android:hint="01/10/2021"
+                android:hint="@string/data_inicio_relatorio_hint"
                 android:inputType="date"
                 android:maxLength="10"
-                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textSize="@dimen/inputs_text"
                 app:layout_constraintEnd_toEndOf="@+id/lblTituloDataInicial"
                 app:layout_constraintStart_toStartOf="@+id/lblTituloDataInicial"
                 app:layout_constraintTop_toBottomOf="@+id/lblTituloDataInicial" />
@@ -75,7 +76,7 @@
                 android:width="120dp"
                 android:gravity="center_horizontal"
                 android:text="@string/titulo_datafinal_relatorio"
-                android:textSize="25sp"
+                android:textSize="@dimen/caption_inputs"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,12 +84,13 @@
                 android:id="@+id/txtDataFinal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/input_caption_margin_bottom"
                 android:width="120dp"
-                android:hint="31/10/2021"
+                android:hint="@string/data_fim_relatorio_hint"
                 android:inputType="date"
                 android:maxLength="10"
-                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textSize="@dimen/inputs_text"
                 app:layout_constraintEnd_toEndOf="@+id/lblTituloDataFinal"
                 app:layout_constraintStart_toStartOf="@+id/lblTituloDataFinal"
                 app:layout_constraintTop_toBottomOf="@+id/lblTituloDataFinal" />
@@ -99,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="@string/titulo_botao_relatorio"
-                android:textSize="25sp"
+                android:textSize="@dimen/buttons_font_size"
                 app:layout_constraintEnd_toEndOf="@+id/txtDataFinal"
                 app:layout_constraintStart_toStartOf="@+id/txtDataInicial"
                 app:layout_constraintTop_toBottomOf="@+id/txtDataFinal" />

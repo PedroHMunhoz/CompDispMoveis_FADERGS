@@ -19,9 +19,9 @@
     <string name="texto_fab_perfil">Meu Perfil</string>
     <string name="texto_fab_sair">Sair</string>
     <string name="txtCadastro">Meu Perfil</string>
-    <string name="txtNome">Nome:</string>
+    <string name="txtNome">Nome</string>
     <string name="etNome">Digite seu nome aqui...</string>
-    <string name="txtEmail">Email:</string>
+    <string name="txtEmail">Email</string>
     <string name="etEmail">Digite seu email aqui...</string>
     <string name="btnSalvar">Salvar</string>
     <string name="cadastro_incompleto_dialog_title">Cadastro Incompleto</string>
@@ -36,7 +36,7 @@
     <string name="lancar_receita_despesa_titulo">Lançar Receita/Despesa</string>
     <string name="btn_lancar">Lançar</string>
     <string name="tipo_lancamento">Tipo</string>
-    <string name="descricao_lancamento_hint">Descrição</string>
+    <string name="descricao_lancamento_hint">Salário do mês</string>
     <string name="erro_descricao_lancamento">Descrição não informada ou inválida!</string>
     <string name="erro_tipo_lancamento">Tipo não informado ou inválido!</string>
     <string name="erro_valor_lancamento_vazio">Valor não informado ou inválido!</string>
@@ -58,12 +58,16 @@
     <string name="datas_vazias_relatorio_titulo">Datas não informadas</string>
     <string name="etConta">Digite seu número da conta aqui...</string>
     <string name="butSalvar">Salvar</string>
-    <string name="txtBanco">Nome do Banco:</string>
+    <string name="txtBanco">Nome do Banco</string>
     <string name="edNomeBanco">Digite o nome do banco aqui..</string>
     <string name="txtConta">Conta Bancária</string>
     <string name="txtNumConta">Número da Conta</string>
     <string name="txtSaldoInicial">Saldo Inicial</string>
     <string name="txtLista">Lista de Contas</string>
-    <string name="txtBancos">Contas:</string>
-
+    <string name="descricao_lancamento">Descrição</string>
+    <string name="valor_lancamento">Valor</string>
+    <string name="valor_lancamento_hint">1000</string>
+    <string name="data_lancamento">Data</string>
+    <string name="data_inicio_relatorio_hint">01/10/2021</string>
+    <string name="data_fim_relatorio_hint">31/10/2021</string>
 </resources>

@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="buttons_font_size">15sp</dimen>
+    <dimen name="caption_inputs">20sp</dimen>
+    <dimen name="title_activity">25sp</dimen>
+    <dimen name="inputs_text">15sp</dimen>
+    <dimen name="input_caption_margin_bottom">10dp</dimen>
 </resources>

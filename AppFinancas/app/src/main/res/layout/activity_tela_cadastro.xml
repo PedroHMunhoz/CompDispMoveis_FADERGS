@@ -27,7 +27,7 @@
             android:layout_marginBottom="30dp"
             android:text="@string/txtCadastro"
             android:textAlignment="center"
-            android:textSize="30dp"
+            android:textSize="@dimen/title_activity"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="162dp"
             tools:layout_editor_absoluteY="85dp" />
@@ -36,9 +36,9 @@
             android:id="@+id/txtNome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="@dimen/input_caption_margin_bottom"
             android:text="@string/txtNome"
-            android:textSize="25dp"
+            android:textSize="@dimen/caption_inputs"
             android:textStyle="bold" />
 
         <EditText
@@ -47,17 +47,16 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:hint="@string/etNome"
-            android:textAlignment="center"
-            android:textSize="20dp"
+            android:textSize="@dimen/inputs_text"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="@dimen/input_caption_margin_bottom"
             android:text="@string/txtEmail"
-            android:textSize="25dp"
+            android:textSize="@dimen/caption_inputs"
             android:textStyle="bold" />
 
         <EditText
@@ -67,8 +66,7 @@
             android:layout_marginBottom="20dp"
             android:enabled="false"
             android:hint="@string/etEmail"
-            android:textAlignment="center"
-            android:textSize="20dp"
+            android:textSize="@dimen/inputs_text"
             android:textStyle="bold" />
 
         <Button
@@ -76,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/btnSalvar" />
+            android:text="@string/btnSalvar"
+            android:textSize="@dimen/buttons_font_size" />
     </LinearLayout>
 </ScrollView>

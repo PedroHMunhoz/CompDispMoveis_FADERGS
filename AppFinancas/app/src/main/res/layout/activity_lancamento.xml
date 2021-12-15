@@ -29,10 +29,17 @@
             android:layout_marginBottom="30dp"
             android:text="@string/lancar_receita_despesa_titulo"
             android:textAlignment="center"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="162dp"
-            tools:layout_editor_absoluteY="85dp" />
+            android:textSize="@dimen/title_activity"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/input_caption_margin_bottom"
+            android:text="@string/descricao_lancamento"
+            android:textSize="@dimen/caption_inputs"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtDescricaoLancamento"
@@ -40,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:hint="@string/descricao_lancamento_hint"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:textSize="@dimen/inputs_text" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,7 +56,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:text="@string/tipo_lancamento"
-            android:textSize="25sp"
+            android:textSize="@dimen/caption_inputs"
             android:textStyle="bold" />
 
         <RadioGroup
@@ -74,13 +82,32 @@
                 android:text="@string/titulo_despesas" />
         </RadioGroup>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/input_caption_margin_bottom"
+            android:text="@string/valor_lancamento"
+            android:textSize="@dimen/caption_inputs"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/txtValor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:hint="1000"
-            android:inputType="numberDecimal" />
+            android:hint="@string/valor_lancamento_hint"
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/inputs_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/input_caption_margin_bottom"
+            android:text="@string/data_lancamento"
+            android:textSize="@dimen/caption_inputs"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtData"
@@ -88,7 +115,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:hint="01/10/2021"
-            android:inputType="date" />
+            android:inputType="date"
+            android:textSize="@dimen/inputs_text" />
 
         <DatePicker
             android:id="@+id/dtpData"
@@ -103,7 +131,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/btn_lancar" />
+            android:text="@string/btn_lancar"
+            android:textSize="@dimen/buttons_font_size" />
     </LinearLayout>
 </ScrollView>
 

@@ -19,9 +19,9 @@
     <string name="texto_fab_perfil">My Profile</string>
     <string name="texto_fab_sair">Logout</string>
     <string name="txtCadastro">My Profile</string>
-    <string name="txtNome">Name:</string>
+    <string name="txtNome">Name</string>
     <string name="etNome">Enter your name here...</string>
-    <string name="txtEmail">Email:</string>
+    <string name="txtEmail">Email</string>
     <string name="etEmail">Enter your email here...</string>
     <string name="btnSalvar">Save</string>
     <string name="cadastro_incompleto_dialog_title">Incomplete Registration</string>
@@ -36,7 +36,7 @@
     <string name="lancar_receita_despesa_titulo">Register Revenue/Expense</string>
     <string name="btn_lancar">Register</string>
     <string name="tipo_lancamento">Type</string>
-    <string name="descricao_lancamento_hint">Description</string>
+    <string name="descricao_lancamento_hint">Monthly wage</string>
     <string name="erro_descricao_lancamento">Description not informed or invalid!</string>
     <string name="erro_tipo_lancamento">Type not informed or invalid!</string>
     <string name="erro_valor_lancamento_vazio">Value not informed or invalid!</string>
@@ -58,20 +58,16 @@
     <string name="datas_vazias_relatorio_titulo">Dates not informed</string>
     <string name="etConta">Enter your account number here...</string>
     <string name="butSalvar">Save</string>
-    <string name="txtBanco">Bank Name:</string>
+    <string name="txtBanco">Bank Name</string>
     <string name="edNomeBanco">Enter the bank name here..</string>
     <string name="txtConta">Bank Account</string>
     <string name="txtNumConta">Account Number</string>
     <string name="txtSaldoInicial">Starting Balance</string>
-    <string name="title_activity_tela_lista">TelaLista</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="txtLista">Account List</string>
-    <string name="txtBancos">Accounts:</string>
-
+    <string name="descricao_lancamento">Description</string>
+    <string name="valor_lancamento">Value</string>
+    <string name="valor_lancamento_hint">1000</string>
+    <string name="data_lancamento">Date</string>
+    <string name="data_inicio_relatorio_hint">01/10/2021</string>
+    <string name="data_fim_relatorio_hint">31/10/2021</string>
 </resources>

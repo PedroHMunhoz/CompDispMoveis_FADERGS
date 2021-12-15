@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0"
         android:orientation="vertical">
 
         <TextView
@@ -24,21 +24,12 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
             android:text="@string/txtLista"
-            android:textSize="30dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txtBancos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="@string/txtBancos"
-            android:textSize="25dp"
+            android:textSize="@dimen/title_activity"
             android:textStyle="bold" />
 
         <ListView
             android:id="@+id/TelaConta"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="600dp" />
     </LinearLayout>
 </ScrollView>
