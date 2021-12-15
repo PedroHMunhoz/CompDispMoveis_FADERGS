@@ -63,4 +63,7 @@
     <string name="txtConta">Conta Bancária</string>
     <string name="txtNumConta">Número da Conta</string>
     <string name="txtSaldoInicial">Saldo Inicial</string>
+    <string name="txtLista">Lista de Contas</string>
+    <string name="txtBancos">Contas:</string>
+
 </resources>
