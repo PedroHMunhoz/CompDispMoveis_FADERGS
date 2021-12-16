@@ -71,4 +71,10 @@
     <string name="data_inicio_relatorio_hint">01/10/2021</string>
     <string name="data_fim_relatorio_hint">31/10/2021</string>
     <string name="btn_lista_contas_usuario">Minhas Contas Bancárias</string>
+    <string name="erro_nome_banco_vazio">Nome do banco não pode estar em branco.</string>
+    <string name="erro_numero_conta_vazio">Número da Conta não pode estar em branco.</string>
+    <string name="erro_saldo_inicial_vazio">Saldo inicial não pode estar em branco.</string>
+    <string name="erro_numero_conta_invalido">Número da Conta não pode ser zero.</string>
+    <string name="erro_saldo_inicial_invalido">Saldo Inicial não pode ser zero.</string>
+    <string name="conta_bancaria_cadastrada_sucesso">Conta cadastrada com sucesso!</string>
 </resources>

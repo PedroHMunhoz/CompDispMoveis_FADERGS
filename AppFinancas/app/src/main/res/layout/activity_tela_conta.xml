@@ -47,8 +47,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:hint="@string/edNomeBanco"
-            android:textSize="@dimen/inputs_text"
-            android:textStyle="bold"></EditText>
+            android:inputType="textCapWords"
+            android:textSize="@dimen/inputs_text"></EditText>
 
         <TextView
             android:id="@+id/txtNum"
@@ -67,8 +67,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:hint="@string/etConta"
-            android:textSize="@dimen/inputs_text"
-            android:textStyle="bold" />
+            android:inputType="number"
+            android:textSize="@dimen/inputs_text" />
 
         <TextView
             android:id="@+id/txtSaldo"
@@ -85,11 +85,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:inputType="numberDecimal"
-            android:textColor="#3F51B5"
-            android:textSize="@dimen/inputs_text"
             android:hint="1250"
-            android:textStyle="bold" />
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/inputs_text" />
 
         <Button
             android:id="@+id/butSalvar"

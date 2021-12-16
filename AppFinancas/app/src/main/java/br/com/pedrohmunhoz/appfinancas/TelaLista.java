@@ -4,13 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class TelaLista extends AppCompatActivity {
+
+    private ListView lvwContas;
+    private FirebaseAuth auth;
+    private List<ContaBancaria> lstContas;
+    private ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +28,11 @@ public class TelaLista extends AppCompatActivity {
         setContentView(R.layout.activity_tela_lista);
         Toolbar toolbar = findViewById(R.id.toolbarTelaLista);
         toolbar.setVisibility(View.GONE);
+
+        auth = FirebaseAuth.getInstance();
+        lvwContas = findViewById(R.id.lvwContas);
+
+        carregarContas();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -29,5 +44,28 @@ public class TelaLista extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
 
+        carregarContas();
+    }
+
+    private void carregarContas() {
+        String userIdFirebase = auth.getCurrentUser().getUid();
+        lstContas = ContaBancariaDAO.getContasByUser(TelaLista.this, userIdFirebase);
+
+        if (lstContas.size() == 0) {
+            ContaBancaria fake = new ContaBancaria("Seu usuário não possui contas cadastradas ainda.");
+            lstContas.add(fake);
+
+            lvwContas.setEnabled(false);
+        } else {
+            lvwContas.setEnabled(true);
+        }
+
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lstContas);
+
+        lvwContas.setAdapter(adapter);
+    }
 }
