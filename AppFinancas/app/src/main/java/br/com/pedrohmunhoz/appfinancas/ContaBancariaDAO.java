@@ -98,4 +98,29 @@ public class ContaBancariaDAO {
             db.update("contabancaria", values, "usuario_id = '" + idUsuario + "' AND id = " + conta.getId(), null);
         }
     }
+
+    public static ContaBancaria getContasByID(Context context, int idConta) {
+        List<ContaBancaria> listaContaBancaria = new ArrayList<>();
+
+        Conexao conn = new Conexao(context);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM contabancaria WHERE id = " + idConta, null);
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+
+            ContaBancaria conta = new ContaBancaria();
+            conta.setId(cursor.getInt(0));
+            conta.setUsuario_id(cursor.getString(1));
+            conta.setNome_banco(cursor.getString(2));
+            conta.setNumero_conta(cursor.getInt(3));
+            conta.setSaldo_inicial(cursor.getDouble(4));
+            conta.setSaldo_atual(cursor.getDouble(5));
+            return conta;
+        } else {
+            return null;
+        }
+    }
 }

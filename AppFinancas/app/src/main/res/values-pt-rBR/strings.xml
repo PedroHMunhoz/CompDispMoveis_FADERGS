@@ -77,4 +77,5 @@
     <string name="erro_numero_conta_invalido">Número da Conta não pode ser zero.</string>
     <string name="erro_saldo_inicial_invalido">Saldo Inicial não pode ser zero.</string>
     <string name="conta_bancaria_cadastrada_sucesso">Conta cadastrada com sucesso!</string>
+    <string name="conta_bancaria_atualizada_sucesso">Conta atualizada com sucesso!</string>
 </resources>

@@ -9,12 +9,11 @@ public class ContaBancaria {
     public double saldo_inicial;
     public double saldo_atual;
 
-    public ContaBancaria(String nome)
-    {
+    public ContaBancaria(String nome) {
         this.nome_banco = nome;
     }
 
-    public ContaBancaria(){
+    public ContaBancaria() {
 
     }
 
@@ -68,6 +67,10 @@ public class ContaBancaria {
 
     @Override
     public String toString() {
-        return getNome_banco() + " | " + getNumero_conta() + " | R$" + getSaldo_atual();
+        if (this.numero_conta == 0 || this.saldo_atual == 0) {
+            return getNome_banco();
+        } else {
+            return getNome_banco() + " | " + getNumero_conta() + " | R$" + getSaldo_atual();
+        }
     }
 }

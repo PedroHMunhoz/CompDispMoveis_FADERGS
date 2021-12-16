@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -42,6 +43,26 @@ public class TelaLista extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        lvwContas.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                //Excluir(position);
+                return true;
+            }
+        });
+
+        lvwContas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int idConta = lstContas.get(position).getId();
+
+                Intent intent = new Intent(TelaLista.this, TelaConta.class);
+                intent.putExtra("acao", "editar");
+                intent.putExtra("conta_id", idConta);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -68,4 +89,6 @@ public class TelaLista extends AppCompatActivity {
 
         lvwContas.setAdapter(adapter);
     }
+
+
 }

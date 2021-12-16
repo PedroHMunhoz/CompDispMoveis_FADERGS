@@ -2,7 +2,6 @@ package br.com.pedrohmunhoz.appfinancas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +10,6 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-
 public class TelaConta extends AppCompatActivity {
 
     Button butSalvar;
@@ -19,6 +17,8 @@ public class TelaConta extends AppCompatActivity {
     EditText etSaldoInicial;
     private EditText edNomeBanco;
     private FirebaseAuth auth;
+    private String acao;
+    private ContaBancaria conta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class TelaConta extends AppCompatActivity {
         etConta = findViewById(R.id.etConta);
         etSaldoInicial = findViewById(R.id.etSaldoInicial);
         edNomeBanco = findViewById(R.id.edNomeBanco);
+        acao = getIntent().getStringExtra("acao");
 
         auth = FirebaseAuth.getInstance();
 
@@ -38,6 +39,15 @@ public class TelaConta extends AppCompatActivity {
                 salvarConta();
             }
         });
+
+        if (acao.equals("editar")) {
+            carregarFormulario();
+            etSaldoInicial.setEnabled(false);
+        }
+        else
+        {
+            etSaldoInicial.setEnabled(false);
+        }
     }
 
     private void salvarConta() {
@@ -48,16 +58,24 @@ public class TelaConta extends AppCompatActivity {
             double saldo_inicial = Double.parseDouble(etSaldoInicial.getText().toString());
             double saldo_atual = saldo_inicial;
 
-            ContaBancaria conta = new ContaBancaria();
+            if (!acao.equals("editar")) {
+                conta = new ContaBancaria();
+                conta.setSaldo_inicial(saldo_inicial);
+                conta.setSaldo_atual(saldo_atual);
+            }
+
             conta.setUsuario_id(userIdFirebase);
             conta.setNome_banco(nomebanco);
             conta.setNumero_conta(numero_conta);
-            conta.setSaldo_inicial(saldo_inicial);
-            conta.setSaldo_atual(saldo_atual);
 
-            ContaBancariaDAO.inserir(TelaConta.this, conta);
+            if (acao.equals("editar")) {
+                ContaBancariaDAO.editar(TelaConta.this, conta);
+                Toast.makeText(TelaConta.this, R.string.conta_bancaria_atualizada_sucesso, Toast.LENGTH_LONG).show();
+            } else {
+                ContaBancariaDAO.inserir(TelaConta.this, conta);
+                Toast.makeText(TelaConta.this, R.string.conta_bancaria_cadastrada_sucesso, Toast.LENGTH_LONG).show();
+            }
 
-            Toast.makeText(TelaConta.this, R.string.conta_bancaria_cadastrada_sucesso, Toast.LENGTH_LONG).show();
             finish();
         }
     }
@@ -96,5 +114,15 @@ public class TelaConta extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    private void carregarFormulario() {
+        int id = getIntent().getIntExtra("conta_id", 0);
+
+        conta = ContaBancariaDAO.getContasByID(this, id);
+
+        edNomeBanco.setText(conta.getNome_banco());
+        etSaldoInicial.setText(String.valueOf(conta.getSaldo_inicial()));
+        etConta.setText(String.valueOf( conta.getNumero_conta()));
     }
 }
