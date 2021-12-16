@@ -40,6 +40,7 @@ public class TelaLista extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TelaLista.this, TelaConta.class);
+                intent.putExtra("acao", "inserir");
                 startActivity(intent);
             }
         });

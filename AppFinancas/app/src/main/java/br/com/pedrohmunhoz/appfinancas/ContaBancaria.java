@@ -65,6 +65,10 @@ public class ContaBancaria {
         this.saldo_atual = saldo_atual;
     }
 
+    public String getNomeENumerConta() {
+        return getNome_banco() + " - " + getNumero_conta();
+    }
+
     @Override
     public String toString() {
         if (this.numero_conta == 0 || this.saldo_atual == 0) {

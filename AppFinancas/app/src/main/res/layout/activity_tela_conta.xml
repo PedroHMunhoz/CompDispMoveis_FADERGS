@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:hint="@string/edNomeBanco"
-            android:inputType="textCapWords"
+            android:inputType="textCapSentences"
             android:textSize="@dimen/inputs_text"></EditText>
 
         <TextView

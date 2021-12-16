@@ -43,10 +43,8 @@ public class TelaConta extends AppCompatActivity {
         if (acao.equals("editar")) {
             carregarFormulario();
             etSaldoInicial.setEnabled(false);
-        }
-        else
-        {
-            etSaldoInicial.setEnabled(false);
+        } else {
+            etSaldoInicial.setEnabled(true);
         }
     }
 
@@ -123,6 +121,6 @@ public class TelaConta extends AppCompatActivity {
 
         edNomeBanco.setText(conta.getNome_banco());
         etSaldoInicial.setText(String.valueOf(conta.getSaldo_inicial()));
-        etConta.setText(String.valueOf( conta.getNumero_conta()));
+        etConta.setText(String.valueOf(conta.getNumero_conta()));
     }
 }

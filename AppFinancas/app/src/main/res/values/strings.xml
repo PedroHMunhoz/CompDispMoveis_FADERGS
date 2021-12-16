@@ -78,4 +78,7 @@
     <string name="erro_saldo_inicial_invalido">Starting balance cannot be zero.</string>
     <string name="conta_bancaria_cadastrada_sucesso">Bank Account created with success!</string>
     <string name="conta_bancaria_atualizada_sucesso">Bank Account updated with success!</string>
+    <string name="erro_conta_bancaria_invalida_lancamento">Bank Account not informed or invalid!</string>
+    <string name="conta_bancaria_lancamento">Bank Account</string>
+    <string name="cadastro_incompleto_conta_bancaria_dialog_message">You don\'t have any Bank Accounts registered in the app. Access My Profile to add a new Bank Account.</string>
 </resources>

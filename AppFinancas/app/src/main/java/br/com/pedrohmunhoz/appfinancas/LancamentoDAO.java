@@ -16,17 +16,25 @@ import java.util.Locale;
 public class LancamentoDAO {
 
     public static void inserir(Context context, Lancamento lancamento) {
+        int tipoLancamento = lancamento.getTipoLancamento();
+        String idUsuario = lancamento.getUsuario_id();
+        int idConta = lancamento.getContabancaria_id();
+        double valor = lancamento.getValor();
+
         ContentValues values = new ContentValues();
-        values.put("usuario_id", lancamento.getUsuario_id());
+        values.put("usuario_id", idUsuario);
         values.put("descricao", lancamento.getDescricao());
-        values.put("tipoLancamento", lancamento.getTipoLancamento());
-        values.put("valor", lancamento.getValor());
+        values.put("tipoLancamento", tipoLancamento);
+        values.put("valor", valor);
         values.put("data", lancamento.getData().toString());
+        values.put("contabancaria_id", idConta);
 
         Conexao conn = new Conexao(context);
         SQLiteDatabase db = conn.getWritableDatabase();
 
         db.insert("lancamento", null, values);
+
+        ContaBancariaDAO.atualizaSaldoConta(context, idUsuario, idConta, tipoLancamento, valor);
     }
 
     public static List<Lancamento> getLancamentosByUser(Context context, String idUsuario, LocalDate dataInicio, LocalDate dataFim) {
@@ -75,7 +83,7 @@ public class LancamentoDAO {
         return listaLancamentos;
     }
 
-    public static TotaisLancamentos GetTotaisLancamentosUltimos7DiasByUser(Context context, String idUsuario,LocalDate dataInicio, LocalDate dataFim) {
+    public static TotaisLancamentos GetTotaisLancamentosUltimos7DiasByUser(Context context, String idUsuario, LocalDate dataInicio, LocalDate dataFim) {
         double totalReceitas = 0;
         double totalDespesas = 0;
         double total = 0;

@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:hint="@string/etNome"
+            android:inputType="textCapSentences"
             android:textSize="@dimen/inputs_text"
             android:textStyle="bold" />
 

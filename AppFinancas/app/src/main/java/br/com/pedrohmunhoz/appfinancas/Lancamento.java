@@ -14,6 +14,7 @@ public class Lancamento {
     public Context context;
     public String dataFormatada;
     public String valorFormatado;
+    public int contabancaria_id;
 
     public Lancamento(Context context) {
         this.context = context;
@@ -100,8 +101,16 @@ public class Lancamento {
         if (tipoLancamento == 0) {
             return descricao;
         } else {
-            String prefixo = (getTipoLancamento() == 1 ? "+ ": "- ");
-            return descricao + "  |  " + prefixo +  getValorFormatado() + "  |  " + getDataFormatada();
+            String prefixo = (getTipoLancamento() == 1 ? "+ " : "- ");
+            return descricao + "  |  " + prefixo + getValorFormatado() + "  |  " + getDataFormatada();
         }
+    }
+
+    public int getContabancaria_id() {
+        return contabancaria_id;
+    }
+
+    public void setContabancaria_id(int contabancaria_id) {
+        this.contabancaria_id = contabancaria_id;
     }
 }

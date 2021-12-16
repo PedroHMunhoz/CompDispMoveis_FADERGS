@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Valida o usuário logado via FireBase e se o cadastro está completo
         ValidarUsuario();
+
+        PreencherNomeUsuarioLogado();
+        CalcularTotaisUsuario();
+        RefreshGrafico();
     }
 
     @Override
@@ -93,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Valida o usuário logado via FireBase e se o cadastro está completo
         ValidarUsuario();
+        PreencherNomeUsuarioLogado();
+        CalcularTotaisUsuario();
+        RefreshGrafico();
 
         auth.addAuthStateListener(authStateListener);
 
@@ -150,14 +157,6 @@ public class MainActivity extends AppCompatActivity {
         // Se a activity não foi aberta pelo Main, deve matar ela pra evitar que o usuário volte pra cá de malandro
         if (!openFromMain)
             finish();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        PreencherNomeUsuarioLogado();
-        CalcularTotaisUsuario();
-        RefreshGrafico();
     }
 
     private void RefreshGrafico() {

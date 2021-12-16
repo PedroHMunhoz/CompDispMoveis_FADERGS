@@ -47,8 +47,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:hint="@string/descricao_lancamento_hint"
-            android:inputType="textCapWords"
+            android:inputType="textCapSentences"
             android:textSize="@dimen/inputs_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/input_caption_margin_bottom"
+            android:text="@string/conta_bancaria_lancamento"
+            android:textSize="@dimen/caption_inputs"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/cboContasBancarias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +79,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
             android:clickable="true">
 

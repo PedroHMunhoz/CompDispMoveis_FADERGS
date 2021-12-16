@@ -78,4 +78,7 @@
     <string name="erro_saldo_inicial_invalido">Saldo Inicial não pode ser zero.</string>
     <string name="conta_bancaria_cadastrada_sucesso">Conta cadastrada com sucesso!</string>
     <string name="conta_bancaria_atualizada_sucesso">Conta atualizada com sucesso!</string>
+    <string name="erro_conta_bancaria_invalida_lancamento">Conta bancária não informada ou inválida!</string>
+    <string name="conta_bancaria_lancamento">Conta Bancária</string>
+    <string name="cadastro_incompleto_conta_bancaria_dialog_message">Você não tem nenhuma conta bancária cadastrada no app. Acesse Meu Perfil para cadastrar uma nova conta bancária.</string>
 </resources>
